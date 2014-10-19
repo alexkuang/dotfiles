@@ -1,0 +1,26 @@
+(require 'package)
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+      		         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("4a60f0178f5cfd5eafe73e0fc2699a03da90ddb79ac6dbc73042a591ae216f03" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+ ;; Also--My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
+(defun init-packages ()
+   ;; Turn on the evil
+  (require 'evil)
+  (evil-mode 1)
+   ;; ir-black-theme
+  (load-theme 'ir-black))
+
+(add-hook 'after-init-hook 'init-packages)
+

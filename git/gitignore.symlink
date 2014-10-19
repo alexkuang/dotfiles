@@ -1,0 +1,11 @@
+# Generally a good idea
+.DS_Store
+.svn
+*~
+*.swp
+*.rbc
+tags
+
+# For scala/lift
+target/
+*.props

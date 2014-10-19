@@ -1,0 +1,182 @@
+call pathogen#infect()
+Helptags " Also infect w/ docs from modules
+
+colorscheme ir_black
+
+autocmd!
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General settings
+" TODO A lot of these settings are pretty naive and from early days, should probably update them lol.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+set nocompatible
+set history=25
+set showmode
+set showcmd
+set expandtab
+set hlsearch
+set backspace=2
+set tabstop=4
+set ruler
+set softtabstop=4
+set shiftwidth=4
+set textwidth=120
+
+set showtabline=2
+set nomodeline
+set nowrap
+set autoindent
+set formatoptions-=u
+set fileformats=unix,dos
+set fileformat=unix
+set fileencodings=ucs-bom,utf-8,default,latin1
+set fileencoding=utf-8
+set shellslash
+set ignorecase
+set smartcase
+set incsearch
+
+set vb " visual bell so it stops making noise.
+
+set tags=./tags,tags;
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Aesthetic settings for splits, status lines, cursor lines, etc.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set splitright
+set splitbelow
+" Playing around with some 'sensible auto resize' for splits...  Experimental
+" set winwidth=120 -> auto-compile makes this a bit janky, disable for now
+set winheight=10
+set winminheight=10
+set winheight=999
+
+" cursorline and such; 233 => basically darkest gray that's noticeable
+set cursorline
+hi CursorLine ctermfg=NONE ctermbg=233 cterm=BOLD
+
+" powerline
+set rtp+=~/.powerline/powerline/bindings/vim
+set laststatus=2
+
+" code folding, still playing around
+set foldmethod=indent
+set nofoldenable
+
+" wipe trailing whitespace before saving; let's hope this regex is right!  :D
+autocmd BufWritePre * :%s/\s\+$//e
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom functions!
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bunch of silly things to make rainbow parens work with tabs.  
+" See: http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
+function! Config_Rainbow()
+    call rainbow_parentheses#load(0)
+    call rainbow_parentheses#load(1)
+    call rainbow_parentheses#load(2)
+endfunction
+
+function! Load_Rainbow()
+    call rainbow_parentheses#activate()
+endfunction
+
+augroup ActivateRainbow
+    autocmd!
+    autocmd Syntax * call Config_Rainbow()
+    autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
+augroup END
+
+" If in a spec file, emit class under test; otherwise, emit spec file
+" Makes some assumptions about your package structure, and about your cwd, but too lazy to fix.  :P
+function! ScalaSpecAlt()
+    let current_file = expand("%")
+    let new_file = current_file
+    let is_spec_file = match(current_file, 'src/test') != -1
+
+    if is_spec_file
+        let new_file = substitute(new_file, 'Spec.scala$', '.scala', '')
+        let new_file = substitute(new_file, 'src/test', 'src/main', '')
+    else
+        let new_file = substitute(new_file, '.scala$', 'Spec.scala', '')
+        let new_file = substitute(new_file, 'src/main', 'src/test', '')
+    endif
+
+    return new_file
+endfunction
+
+function! OpenScalaSpecAlt()
+    exec ':e ' . ScalaSpecAlt()
+endfunction
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" language/plugin-specific configs
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype on
+filetype indent on
+filetype plugin on
+au BufRead,BufNewFile *.md set filetype=markdown
+autocmd FileType ruby,Gemfile set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType html,css set shiftwidth=4 expandtab
+autocmd FileType java set smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType make set noexpandtab shiftwidth=8
+autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
+" use leader-s to switch between class and spec file
+autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
+" TODO - okay default, but what about ant vs sbt?  and ant -Dtest.class="...", etc??
+autocmd FileType scala let b:dispatch = 'ant tests'
+autocmd FileType java let b:dispatch = 'ant compile'
+
+" For scala + clojure
+set wildignore+=*/target/**
+set wildignore+=*.jar
+" For js
+set wildignore+=*/node_modules/**
+
+" Make rvm work in vim; it's because vim doesn't load .zshrc, which rvm relies on for shell magic.
+set shell=bash
+
+" Silly markdown
+let g:vim_markdown_folding_disabled=1
+
+" UltiSnips config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General leader maps and such
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let mapleader=" "
+
+" Neat little trick--expands into directory of current file in cmdline mode
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+
+" Easier than hitting esc or C-c
+inoremap jk <Esc>
+
+nnoremap <leader>t :Dispatch<CR>
+nnoremap <leader>v :tabnew ~/.vimrc<CR>
+" use leader-leader to switch between current and last focused buffer
+nnoremap <leader><leader> <c-^>
+nnoremap <leader>w :set wrap!<CR>
+" Really hacky way to 'temporarily' disable hlsearch, cough cough
+nnoremap <silent> <leader>h :silent! /asdfasdfwtfbbq<CR>
+
+" Tabular maps; a='align'
+nnoremap <leader>a= :Tabularize /=><CR>
+vnoremap <leader>a= :Tabularize /=><CR>
+nnoremap <leader>a- :Tabularize /-><CR>
+vnoremap <leader>a- :Tabularize /-><CR>
