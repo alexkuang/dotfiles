@@ -1,4 +1,3 @@
-(require 'package)
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
       		         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
 (custom-set-variables
@@ -14,13 +13,70 @@
  ;; If there is more than one, they won't work right.
  )
 
- ;; Also--My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
+(require 'package)
+
+;;; Install a package if it's not already installed
+(defun require-package (package)
+  "Install given PACKAGE."
+  (unless (package-installed-p package)
+    (unless (assoc package package-archive-contents)
+      (package-refresh-contents))
+    (package-install package)))
+
+;;; Run this when importing config
 (defun init-packages ()
-   ;; Turn on the evil
+  (package-initialize)
+  (require-package 'evil)
+  (require-package 'evil-leader)
+  (require-package 'evil-search-highlight-persist)
+  (require-package 'flx-ido)
+  (require-package 'ir-black-theme)
+  (require-package 'key-chord)
+  (require-package 'markdown-mode)
+  (require-package 'powerline)
+  (require-package 'powerline-evil)
+  (require-package 'projectile)
+  (require-package 'rainbow-delimiters))
+
+;;; Evil mode--Vim-like stuff
+(defun init-evil ()
   (require 'evil)
-  (evil-mode 1)
-   ;; ir-black-theme
+  (require 'key-chord)
+  (require 'projectile)
+  (require 'evil-search-highlight-persist)
+
+  (key-chord-mode 1)
+  (projectile-global-mode)
+  (global-evil-leader-mode)
+
+  (evil-leader/set-leader "<SPC>")
+  (global-evil-search-highlight-persist t)
+  (evil-leader/set-key "h" 'evil-search-highlight-persist-remove-all)
+  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
+  (evil-mode 1))
+
+;;; Turn my UI into fruit salad once more
+(defun init-pretty ()
+  (require 'powerline)
+  (powerline-evil-vim-color-theme)
   (load-theme 'ir-black))
 
-(add-hook 'after-init-hook 'init-packages)
+(defun init-markdown ()
+  (autoload 'markdown-mode "markdown-mode" "Major mode for *.md files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
 
+;;; Some plugin-independent settings
+(setq ring-bell-function 'ignore)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
+(defun post-init-hooks ()
+  (init-packages)
+  (init-pretty)
+  (init-markdown)
+  (init-evil))
+
+;;; My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
+(add-hook 'after-init-hook 'post-init-hooks)
