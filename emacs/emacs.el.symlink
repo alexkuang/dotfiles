@@ -28,6 +28,7 @@
   (package-initialize)
   (require-package 'evil)
   (require-package 'evil-leader)
+  (require-package 'evil-surround)
   (require-package 'evil-search-highlight-persist)
   (require-package 'flx-ido)
   (require-package 'ir-black-theme)
@@ -45,10 +46,12 @@
   (require 'evil-search-highlight-persist)
   (require 'projectile)
   (require 'flx-ido)
+  (require 'evil-surround)
 
-  (key-chord-mode 1)
-  (projectile-global-mode)
-  (global-evil-leader-mode)
+  (key-chord-mode t)
+  (projectile-global-mode t)
+  (global-evil-leader-mode t)
+  (global-evil-surround-mode t)
 
   (evil-leader/set-leader "<SPC>")
   (global-evil-search-highlight-persist t)
@@ -79,7 +82,6 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defun post-init-hooks ()
-  (init-packages)
   (init-pretty)
   (init-markdown)
   (init-evil))
