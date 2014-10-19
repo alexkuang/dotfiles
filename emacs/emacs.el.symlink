@@ -1,5 +1,5 @@
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-      		         ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -42,8 +42,9 @@
 (defun init-evil ()
   (require 'evil)
   (require 'key-chord)
-  (require 'projectile)
   (require 'evil-search-highlight-persist)
+  (require 'projectile)
+  (require 'flx-ido)
 
   (key-chord-mode 1)
   (projectile-global-mode)
@@ -52,14 +53,17 @@
   (evil-leader/set-leader "<SPC>")
   (global-evil-search-highlight-persist t)
   (evil-leader/set-key "h" 'evil-search-highlight-persist-remove-all)
-  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state)
+  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state) ; inoremap jk <ESC>
   (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
-  (evil-mode 1))
+  (flx-ido-mode t)
+  (evil-mode t))
 
 ;;; Turn my UI into fruit salad once more
 (defun init-pretty ()
   (require 'powerline)
+  (require 'rainbow-delimiters)
   (powerline-evil-vim-color-theme)
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (load-theme 'ir-black))
 
 (defun init-markdown ()
@@ -69,8 +73,10 @@
 
 ;;; Some plugin-independent settings
 (setq ring-bell-function 'ignore)
+(setq-default fill-column 120) ; Now what about auto wrap...
 (setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil) ; set expandtab
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defun post-init-hooks ()
   (init-packages)
