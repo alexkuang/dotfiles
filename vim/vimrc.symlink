@@ -75,7 +75,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bunch of silly things to make rainbow parens work with tabs.  
+" Bunch of silly things to make rainbow parens work with tabs.
 " See: http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
 function! Config_Rainbow()
     call rainbow_parentheses#load(0)
@@ -174,6 +174,7 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>
 " Really hacky way to 'temporarily' disable hlsearch, cough cough
 nnoremap <silent> <leader>h :silent! /asdfasdfwtfbbq<CR>
+nnoremap <leader>n :set number!<CR>
 
 " Tabular maps; a='align'
 nnoremap <leader>a= :Tabularize /=><CR>
