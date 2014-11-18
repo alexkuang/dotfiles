@@ -1,5 +1,3 @@
-(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -14,6 +12,9 @@
  )
 
 (require 'package)
+
+(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;; Install a package if it's not already installed
 (defun require-package (package)
@@ -37,19 +38,18 @@
   (require-package 'powerline)
   (require-package 'powerline-evil)
   (require-package 'projectile)
-  (require-package 'rainbow-delimiters))
+  (require-package 'rainbow-delimiters)
+  (require-package 'flycheck))
 
 ;;; Evil mode--Vim-like stuff
 (defun init-evil ()
   (require 'evil)
   (require 'key-chord)
   (require 'evil-search-highlight-persist)
-  (require 'projectile)
   (require 'flx-ido)
   (require 'evil-surround)
 
   (key-chord-mode t)
-  (projectile-global-mode t)
   (global-evil-leader-mode t)
   (global-evil-surround-mode t)
 
@@ -57,7 +57,6 @@
   (global-evil-search-highlight-persist t)
   (evil-leader/set-key "h" 'evil-search-highlight-persist-remove-all)
   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state) ; inoremap jk <ESC>
-  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
   (flx-ido-mode t)
   (evil-mode t))
 
@@ -69,10 +68,28 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (load-theme 'ir-black))
 
+;;; Fuzzy find, auto-complete, etc
+(defun init-fuzzy ()
+  (require 'projectile)
+  (require 'evil)
+  (projectile-global-mode t)
+  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file))
+
 (defun init-markdown ()
   (autoload 'markdown-mode "markdown-mode" "Major mode for *.md files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+
+(defun init-scala ()
+  (autoload 'scala-mode "scala-mode2" "Major mode for scala" t)
+  (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode)))
+
+(defun init-lang-autoloads ()
+  (init-markdown)
+  (init-scala))
+
+(defun init-flycheck ()
+  (global-flycheck-mode))
 
 ;;; Some plugin-independent settings
 (setq ring-bell-function 'ignore)
@@ -83,7 +100,9 @@
 
 (defun post-init-hooks ()
   (init-pretty)
-  (init-markdown)
+  (init-lang-autoloads)
+  (init-fuzzy)
+  (init-flycheck)
   (init-evil))
 
 ;;; My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
