@@ -52,6 +52,7 @@
   (key-chord-mode t)
   (global-evil-leader-mode t)
   (global-evil-surround-mode t)
+  (evil-set-toggle-key "C-M-z") ; because f clobbering my C-z...
 
   (evil-leader/set-leader "<SPC>")
   (global-evil-search-highlight-persist t)
