@@ -46,7 +46,6 @@
   (require 'evil)
   (require 'key-chord)
   (require 'evil-search-highlight-persist)
-  (require 'flx-ido)
   (require 'evil-surround)
 
   (key-chord-mode t)
@@ -58,7 +57,6 @@
   (global-evil-search-highlight-persist t)
   (evil-leader/set-key "h" 'evil-search-highlight-persist-remove-all)
   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state) ; inoremap jk <ESC>
-  (flx-ido-mode t)
   (evil-mode t))
 
 ;;; Turn my UI into fruit salad once more
@@ -73,7 +71,11 @@
 (defun init-fuzzy ()
   (require 'projectile)
   (require 'evil)
+  (require 'flx-ido)
+  (flx-ido-mode t)
   (projectile-global-mode t)
+  ;; vertical matches for ido
+  (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
   (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file))
 
 (defun init-markdown ()
