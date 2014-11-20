@@ -35,6 +35,8 @@
   (require-package 'ir-black-theme)
   (require-package 'key-chord)
   (require-package 'markdown-mode)
+  (require-package 'scala-mode)
+  (require-package 'elixir-mode)
   (require-package 'powerline)
   (require-package 'powerline-evil)
   (require-package 'projectile)
@@ -87,9 +89,15 @@
   (autoload 'scala-mode "scala-mode2" "Major mode for scala" t)
   (add-to-list 'auto-mode-alist '("\\.scala\\'" . scala-mode)))
 
+(defun init-elixir ()
+  (autoload 'elixir-mode "elixir-mode" "Major mode for elixir" t)
+  (add-to-list 'auto-mode-alist '("\\.elixir2\\'" . elixir-mode)) ; the defaults should be included already
+  (add-hook 'elixir-mode-hook '(lambda () (alchemist-mode))))
+
 (defun init-lang-autoloads ()
   (init-markdown)
-  (init-scala))
+  (init-scala)
+  (init-elixir))
 
 (defun init-flycheck ()
   (global-flycheck-mode))
