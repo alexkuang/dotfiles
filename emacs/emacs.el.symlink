@@ -70,6 +70,13 @@
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   (load-theme 'ir-black))
 
+;;; Highlight when my line is > 120 chars
+(defun init-line-len-warn ()
+  (require 'whitespace)
+  (setq whitespace-line-column 120)
+  (setq whitespace-style '(face lines-tail))
+  (add-hook 'prog-mode-hook 'whitespace-mode))
+
 ;;; Fuzzy find, auto-complete, etc
 (defun init-fuzzy ()
   (require 'projectile) ; projectile => kinda like ctrl-p but not really?
@@ -111,6 +118,7 @@
 
 (defun post-init-hooks ()
   (init-pretty)
+  (init-line-len-warn)
   (init-lang-autoloads)
   (init-fuzzy)
   (init-flycheck)
