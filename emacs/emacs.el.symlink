@@ -113,7 +113,8 @@
 
 ;;; Some plugin-independent settings
 (setq ring-bell-function 'ignore)
-(setq-default fill-column 120) ; Now what about auto wrap...
+(setq-default fill-column 120)
+(auto-fill-mode) ; Not sure if I should keep this auto wrap or settle for the highlight warning
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil) ; set expandtab
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
