@@ -31,7 +31,8 @@
   (require-package 'evil-leader)
   (require-package 'evil-surround)
   (require-package 'evil-search-highlight-persist)
-  (require-package 'flx-ido)
+  (require-package 'helm)
+  (require-package 'helm-projectile)
   (require-package 'ir-black-theme)
   (require-package 'key-chord)
   (require-package 'markdown-mode)
@@ -71,14 +72,13 @@
 
 ;;; Fuzzy find, auto-complete, etc
 (defun init-fuzzy ()
-  (require 'projectile)
+  (require 'projectile) ; projectile => kinda like ctrl-p but not really?
   (require 'evil)
-  (require 'flx-ido)
-  (flx-ido-mode t)
+  (require 'helm-projectile)
+  (helm-mode t) ; helm is a general matching framework that works on freakin' everything apparently
+  (helm-projectile-on) ; use helm stuff for projectile
   (projectile-global-mode t)
-  ;; vertical matches for ido
-  (setq ido-decorations (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
-  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file))
+  (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile-find-file))
 
 (defun init-markdown ()
   (autoload 'markdown-mode "markdown-mode" "Major mode for *.md files" t)
