@@ -39,6 +39,7 @@
   (require-package 'markdown-mode)
   (require-package 'scala-mode)
   (require-package 'elixir-mode)
+  (require-package 'alchemist)
   (require-package 'powerline)
   (require-package 'powerline-evil)
   (require-package 'projectile)
@@ -86,7 +87,7 @@
   (helm-mode t) ; helm is a general matching framework that works on freakin' everything apparently
   (helm-projectile-on) ; use helm stuff for projectile
   (projectile-global-mode t)
-  (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile-find-file))
+  (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile))
 
 (defun init-markdown ()
   (autoload 'markdown-mode "markdown-mode" "Major mode for *.md files" t)
