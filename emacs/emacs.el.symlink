@@ -27,6 +27,7 @@
 ;;; Run this when importing config
 (defun init-packages ()
   (package-initialize)
+  (package-refresh-contents)
   (require-package 'evil)
   (require-package 'evil-leader)
   (require-package 'evil-surround)
