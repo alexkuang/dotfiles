@@ -119,6 +119,16 @@
 (setq-default indent-tabs-mode nil) ; set expandtab
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;;; Make backups + auto-saves less intrusive by sticking them into tmpdir
+;;; While at it, also keep multiple versions of backups, since you never know.
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+(setq backup-by-copying t) ; in case original file is symlink/etc.
+(setq delete-old-versions t)
+(setq version-control t)
+(setq kept-new-versions 6)
+(setq kept-old-versions 2)
+
 (defun post-init-hooks ()
   (init-pretty)
   (init-line-len-warn)
