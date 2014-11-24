@@ -18,13 +18,13 @@
   (setq kept-new-versions 6)
   (setq kept-old-versions 2))
 
-(defun init-general ()
-  (setq ring-bell-function 'ignore)
-  (setq-default fill-column 120)
-  (add-hook 'text-mode-hook 'auto-fill-mode) ; use hard wrap when composing regular text
-  (setq-default tab-width 2)
-  (setq-default indent-tabs-mode nil) ; set expandtab
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (sane-backup-files))
+
+(setq ring-bell-function 'ignore)
+(setq-default fill-column 120)
+(add-hook 'text-mode-hook 'auto-fill-mode) ; use hard wrap when composing regular text
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil) ; set expandtab
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(sane-backup-files)
 
 (provide 'general-config)

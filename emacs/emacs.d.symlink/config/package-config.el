@@ -14,7 +14,7 @@
     (package-install package)))
 
 ;;; Run this when importing config
-(defun init-packages ()
+(defun redownload-world ()
   (package-initialize)
   (package-refresh-contents)
   (require-package 'evil)
