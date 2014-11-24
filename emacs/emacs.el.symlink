@@ -37,7 +37,7 @@
   (require-package 'ir-black-theme)
   (require-package 'key-chord)
   (require-package 'markdown-mode)
-  (require-package 'scala-mode)
+  (require-package 'scala-mode2)
   (require-package 'elixir-mode)
   (require-package 'alchemist)
   (require-package 'powerline)
