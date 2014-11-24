@@ -17,6 +17,7 @@
         st = status
         com = commit
         co = checkout
+        dc = diff --cached
 [color]
         diff = auto
         status = auto
