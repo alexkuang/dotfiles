@@ -1,13 +1,8 @@
 #!/bin/sh
 #
-# Install zsh, oh-my-zsh, etc.
+# Install oh-my-zsh, etc.
 
-if test ! $(which zsh)
-then
-    echo "[zsh] Installing zsh"
-    brew install zsh
-fi
-
+# zsh installed as a part of homebrew/install.sh
 if [ ! -d ~/.oh-my-zsh ]
 then
     echo "[zsh] Installing oh-my-zsh"

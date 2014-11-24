@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark
+brew install ag vim emacs tmux zsh
 
 exit 0
