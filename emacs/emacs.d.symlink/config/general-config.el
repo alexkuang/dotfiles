@@ -27,3 +27,4 @@
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (sane-backup-files))
 
+(provide 'general-config)
