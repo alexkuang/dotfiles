@@ -92,7 +92,9 @@
 (defun init-markdown ()
   (autoload 'markdown-mode "markdown-mode" "Major mode for *.md files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode)))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  ; use hard wrap when composing in markdown, which is mostly regular text anyway
+  (add-hook 'markdown-mode-hook 'auto-fill-mode))
 
 (defun init-scala ()
   (autoload 'scala-mode "scala-mode2" "Major mode for scala" t)
@@ -111,25 +113,26 @@
 (defun init-flycheck ()
   (global-flycheck-mode))
 
-;;; Some plugin-independent settings
-(setq ring-bell-function 'ignore)
-(setq-default fill-column 120)
-(auto-fill-mode t) ; Not sure if I should keep this auto wrap or settle for the highlight warning
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil) ; set expandtab
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(defun init-general ()
+  (setq ring-bell-function 'ignore)
+  (setq-default fill-column 120)
+  (add-hook 'text-mode-hook 'auto-fill-mode) ; use hard wrap when composing regular text
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode nil) ; set expandtab
+  (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;; Make backups + auto-saves less intrusive by sticking them into tmpdir
-;;; While at it, also keep multiple versions of backups, since you never know.
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-(setq backup-by-copying t) ; in case original file is symlink/etc.
-(setq delete-old-versions t)
-(setq version-control t)
-(setq kept-new-versions 6)
-(setq kept-old-versions 2)
+  ;;; Make backups + auto-saves less intrusive by sticking them into tmpdir
+  ;;; While at it, also keep multiple versions of backups, since you never know.
+  (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+  (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+  (setq backup-by-copying t) ; in case original file is symlink/etc.
+  (setq delete-old-versions t)
+  (setq version-control t)
+  (setq kept-new-versions 6)
+  (setq kept-old-versions 2))
 
 (defun post-init-hooks ()
+  (init-general)
   (init-pretty)
   (init-line-len-warn)
   (init-lang-autoloads)
