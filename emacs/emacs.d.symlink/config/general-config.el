@@ -22,7 +22,7 @@
   (setq ring-bell-function 'ignore)
   (setq-default fill-column 120)
   (add-hook 'text-mode-hook 'auto-fill-mode) ; use hard wrap when composing regular text
-  (setq-default tab-width 4)
+  (setq-default tab-width 2)
   (setq-default indent-tabs-mode nil) ; set expandtab
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (sane-backup-files))
