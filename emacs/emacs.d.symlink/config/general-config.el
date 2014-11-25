@@ -26,5 +26,6 @@
 (setq-default indent-tabs-mode nil) ; set expandtab
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (sane-backup-files)
+(highlight-long-lines)
 
 (provide 'general-config)
