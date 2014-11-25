@@ -8,6 +8,8 @@
 (helm-projectile-on) ; use helm stuff for projectile
 (projectile-global-mode t)
 (define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
+(define-key helm-map (kbd "C-j") 'helm-next-line)
+(define-key helm-map (kbd "C-k") 'helm-previous-line)
 (setq projectile-tags-file-name "etags")
 
 (provide 'fuzzy-config)
