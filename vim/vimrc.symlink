@@ -39,7 +39,7 @@ set incsearch
 
 set vb " visual bell so it stops making noise.
 
-set tags=./tags,tags;
+set tags=./ctags,ctags;
 
 
 

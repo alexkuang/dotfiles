@@ -5,6 +5,9 @@
 *.swp
 *.rbc
 tags
+# I want to use both ctags and etags, dammit
+etags
+ctags
 
 # For scala/lift
 target/
