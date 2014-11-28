@@ -17,10 +17,7 @@
 (defun lang-load-hooks ()
   (require 'markdown-config)
   (require 'scala-config)
-  (require 'elixir-config)
-  (init-markdown)
-  (init-scala)
-  (init-elixir))
+  (require 'elixir-config))
 
 ;;; load up funcs from split out files and call them
 (defun post-init-hooks ()
@@ -28,7 +25,8 @@
   (require 'pretty-config)
   (require 'fuzzy-config)
   (require 'flycheck-config)
-  (require 'general-config))
+  (require 'general-config)
+  (lang-load-hooks))
 
 ;;; My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
 (add-hook 'after-init-hook 'post-init-hooks)
