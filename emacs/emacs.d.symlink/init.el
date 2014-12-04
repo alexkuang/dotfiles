@@ -29,7 +29,8 @@
   (require 'pretty-config)
   (require 'fuzzy-config)
   (require 'flycheck-config)
-  (require 'general-config))
+  (require 'general-config)
+  (require 'key-config))
 
 ;;; My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
 (add-hook 'after-init-hook 'post-init-hooks)
