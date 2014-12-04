@@ -24,6 +24,7 @@
 
 ;;; load up funcs from split out files and call them
 (defun post-init-hooks ()
+  (require 'package-config)
   (require 'evil-config)
   (require 'pretty-config)
   (require 'fuzzy-config)
