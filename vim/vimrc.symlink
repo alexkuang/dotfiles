@@ -173,7 +173,7 @@ nnoremap <leader>v :tabnew ~/.vimrc<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>
 " Really hacky way to 'temporarily' disable hlsearch, cough cough
-nnoremap <silent> <leader>h :silent! /asdfasdfwtfbbq<CR>
+nnoremap <silent> <leader>hl :silent! /asdfasdfwtfbbq<CR>
 nnoremap <leader>n :set number!<CR>
 
 " Tabular maps; a='align'

@@ -33,6 +33,8 @@
   (require-package 'powerline-evil)
   (require-package 'projectile)
   (require-package 'rainbow-delimiters)
-  (require-package 'flycheck))
+  (require-package 'flycheck)
+  (require-package 'magit)
+  (require-package 'ag))
 
 (provide 'package-config)

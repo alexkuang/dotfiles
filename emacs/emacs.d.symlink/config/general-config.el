@@ -1,7 +1,7 @@
 ;;;; Misc config options that don't really belong anywhere else
 
-;;; Highlight when my line is > 120 chars
 (defun highlight-long-lines ()
+  "Highlight when my line is > 120 chars"
   (require 'whitespace)
   (setq whitespace-line-column 120)
   (setq whitespace-style '(face lines-tail))
@@ -18,6 +18,11 @@
   (setq kept-new-versions 6)
   (setq kept-old-versions 2))
 
+;;; Mapped to leader space in key-config
+(defun switch-last-buffer ()
+  "Switch back and forth between current and last buffer."
+  (interactive)
+    (switch-to-buffer (other-buffer (current-buffer) t)))
 
 (setq ring-bell-function 'ignore)
 (setq-default fill-column 120)
