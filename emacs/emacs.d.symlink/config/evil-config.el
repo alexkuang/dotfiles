@@ -6,6 +6,9 @@
 (require 'evil)
 (require 'evil-search-highlight-persist)
 (require 'evil-surround)
+(require 'evil-visualstar)
+
+(evil-select-search-module 'evil-search-module 'evil-search)
 
 (setq evil-shift-width 2)
 
