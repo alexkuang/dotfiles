@@ -1,5 +1,8 @@
 ;;;; Evil mode--Vim-like stuff
 
+;; Must be loaded before requiring 'evil.  Not entirely sure why.
+(setq-default evil-want-C-u-scroll t)
+
 (require 'evil)
 (require 'evil-search-highlight-persist)
 (require 'evil-surround)
