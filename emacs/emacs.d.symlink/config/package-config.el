@@ -22,7 +22,6 @@
   (require-package 'evil-surround)
   (require-package 'evil-search-highlight-persist)
   (require-package 'evil-visualstar)
-  (require-package 'evil-search)
   (require-package 'ace-jump-mode)
   (require-package 'helm)
   (require-package 'helm-projectile)
