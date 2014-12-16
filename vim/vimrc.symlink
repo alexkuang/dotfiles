@@ -48,11 +48,6 @@ set tags=./ctags,ctags;
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set splitright
 set splitbelow
-" Playing around with some 'sensible auto resize' for splits...  Experimental
-" set winwidth=120 -> auto-compile makes this a bit janky, disable for now
-set winheight=10
-set winminheight=10
-set winheight=999
 
 " cursorline and such; 233 => basically darkest gray that's noticeable
 set cursorline

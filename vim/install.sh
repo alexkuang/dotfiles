@@ -13,7 +13,7 @@ pathogen_dir="$HOME/.vim/bundle"
 pathogen_modules=('kien/ctrlp.vim' 'derekwyatt/vim-scala' 'kien/rainbow_parentheses.vim' 'tomtom/tlib_vim'
 'MarcWeber/vim-addon-mw-utils' 'tpope/vim-dispatch' 'tpope/vim-surround' 'tpope/vim-repeat' 'godlygeek/tabular'
 'tpope/vim-abolish' 'tpope/vim-commentary' 'tommcdo/vim-exchange' 'SirVer/ultisnips' 'wesgibbs/vim-irblack'
-'elixir-lang/vim-elixir')
+'elixir-lang/vim-elixir' 'roman/golden-ratio')
 
 echo '[vim] Installing pathogen modules...'
 for module in "${pathogen_modules[@]}"

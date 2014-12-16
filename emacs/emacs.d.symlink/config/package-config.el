@@ -35,6 +35,7 @@
   (require-package 'rainbow-delimiters)
   (require-package 'flycheck)
   (require-package 'magit)
-  (require-package 'ag))
+  (require-package 'ag)
+  (require-package 'golden-ratio))
 
 (provide 'package-config)
