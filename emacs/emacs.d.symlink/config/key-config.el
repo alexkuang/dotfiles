@@ -30,4 +30,7 @@
   "hm" 'describe-mode
   "hv" 'describe-variable)
 
+(evil-leader/set-key
+  "j" 'ace-jump-char-mode)
+
 (provide 'key-config)

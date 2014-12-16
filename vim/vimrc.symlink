@@ -176,3 +176,5 @@ nnoremap <leader>a= :Tabularize /=><CR>
 vnoremap <leader>a= :Tabularize /=><CR>
 nnoremap <leader>a- :Tabularize /-><CR>
 vnoremap <leader>a- :Tabularize /-><CR>
+
+map <leader>j <Plug>(easymotion-s)
