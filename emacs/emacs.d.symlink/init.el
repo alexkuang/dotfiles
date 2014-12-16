@@ -21,7 +21,7 @@
 
 ;;; load up funcs from split out files and call them
 (defun post-init-hooks ()
-  (require 'package-config)
+  (require 'use-package) ; third-party, used a lot later on
   (require 'evil-config)
   (require 'pretty-config)
   (require 'fuzzy-config)

@@ -1,18 +1,11 @@
 ;;;; Config all the keybindings!
 
-(require 'helm)
 (require 'evil)
 (require 'key-chord)
 
 
 ;;; Misc
 (evil-set-toggle-key "C-M-z") ; because f clobbering my C-z...
-
-
-;;; Fuzzy find, helm interaction
-(define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
-(define-key helm-map (kbd "C-j") 'helm-next-line)
-(define-key helm-map (kbd "C-k") 'helm-previous-line)
 
 
 ;;; Leader maps
