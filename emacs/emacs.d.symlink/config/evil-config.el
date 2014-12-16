@@ -8,8 +8,6 @@
 (require 'evil-surround)
 (require 'evil-visualstar)
 
-(evil-select-search-module 'evil-search-module 'evil-search)
-
 (setq evil-shift-width 2)
 
 (key-chord-mode t)
@@ -17,6 +15,9 @@
 (global-evil-surround-mode t)
 
 (global-evil-search-highlight-persist t)
+; For some reason, this breaks evil-search-highlight-persist-remove-all, which is slightly more annoying...
+; (evil-select-search-module 'evil-search-module 'evil-search)
+
 (evil-mode t)
 
 (provide 'evil-config)
