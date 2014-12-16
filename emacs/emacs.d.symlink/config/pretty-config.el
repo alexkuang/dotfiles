@@ -7,4 +7,7 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (load-theme 'ir-black)
 
+(setq show-paren-delay 0) ; why is this a thing??
+(show-paren-mode t)
+
 (provide 'pretty-config)
