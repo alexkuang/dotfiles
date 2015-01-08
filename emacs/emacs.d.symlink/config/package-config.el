@@ -38,6 +38,7 @@
   (require-package 'flycheck)
   (require-package 'magit)
   (require-package 'ag)
-  (require-package 'golden-ratio))
+  (require-package 'golden-ratio)
+  (require-package 'use-package))
 
 (provide 'package-config)
