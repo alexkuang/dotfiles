@@ -23,6 +23,18 @@
   "hm" 'describe-mode
   "hv" 'describe-variable)
 
+; Slightly cargo-culted; should probably find out what interactive does, ha
+(evil-leader/set-key
+  "a=" (lambda (begin end)
+         (interactive "r")
+         (align-regexp begin end "\\(\\s-*\\)=>" 1 1)))
+(evil-leader/set-key
+  "a-" (lambda (begin end)
+         (interactive "r")
+         (align-regexp begin end "\\(\\s-*\\)->" 1 1)))
+(evil-leader/set-key
+  "aa" 'align-regexp)
+
 (evil-leader/set-key
   "j" 'ace-jump-char-mode)
 
