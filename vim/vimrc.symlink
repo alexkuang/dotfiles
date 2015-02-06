@@ -177,4 +177,5 @@ vnoremap <leader>a= :Tabularize /=><CR>
 nnoremap <leader>a- :Tabularize /-><CR>
 vnoremap <leader>a- :Tabularize /-><CR>
 
-map <leader>j <Plug>(easymotion-s)
+" Boo, that doesn't seem to work...
+" map <leader>j <Plug>(easymotion-s)

@@ -28,6 +28,7 @@
   (require 'flycheck-config)
   (require 'general-config)
   (require 'key-config)
+  (require 'snippet-config)
   (lang-load-hooks))
 
 ;;; My first slightly dubious customization!  YAY!  (See http://stackoverflow.com/a/18783152/474065)
