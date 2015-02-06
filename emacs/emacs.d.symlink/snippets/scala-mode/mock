@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#Author :
+#name : mock(...)
+# key: mock
+# --
+mock(classOf[$1])$0

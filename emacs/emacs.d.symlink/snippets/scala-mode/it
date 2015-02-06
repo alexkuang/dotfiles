@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+#Author :
+#name : it("should ...")
+# key: it
+# --
+it ("should $1") {
+  ${0:pending}
+}
