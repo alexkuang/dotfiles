@@ -121,7 +121,7 @@ filetype indent on
 filetype plugin on
 au BufRead,BufNewFile *.md set filetype=markdown
 autocmd FileType ruby,Gemfile set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-autocmd FileType html,css set shiftwidth=4 expandtab
+autocmd FileType html,css set shiftwidth=2 expandtab
 autocmd FileType java set smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2

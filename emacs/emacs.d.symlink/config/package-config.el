@@ -2,7 +2,7 @@
 
 (require 'package)
 
-(setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ;;; Install a package if it's not already installed
@@ -30,6 +30,7 @@
   (require-package 'markdown-mode)
   (require-package 'scala-mode2)
   (require-package 'elixir-mode)
+  (require-package 'coffee-mode)
   (require-package 'alchemist)
   (require-package 'powerline)
   (require-package 'powerline-evil)
