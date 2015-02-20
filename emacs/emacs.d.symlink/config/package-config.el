@@ -40,6 +40,7 @@
   (require-package 'magit)
   (require-package 'ag)
   (require-package 'golden-ratio)
+  (require-package 'yasnippet)
   (require-package 'use-package))
 
 (provide 'package-config)
