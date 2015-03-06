@@ -7,3 +7,4 @@ git/gitconfig.symlink
 emacs/emacs.d.symlink/elpa
 emacs/emacs.d.symlink/projectile-bookmarks.eld
 emacs/emacs.d.symlink/projectile.cache
+emacs/emacs.d.symlink/eshell/history
