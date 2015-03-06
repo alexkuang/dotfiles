@@ -177,5 +177,7 @@ vnoremap <leader>a= :Tabularize /=><CR>
 nnoremap <leader>a- :Tabularize /-><CR>
 vnoremap <leader>a- :Tabularize /-><CR>
 
-" Boo, that doesn't seem to work...
-" map <leader>j <Plug>(easymotion-s)
+" hack to keep easymotion from clobbering my leader-leader...
+" also make leader-j act like acejump
+map <Leader>e <Plug>(easymotion-prefix)
+map <leader>j <Plug>(easymotion-s)
