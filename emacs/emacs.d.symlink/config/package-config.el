@@ -29,7 +29,6 @@
   (require-package 'key-chord)
   (require-package 'markdown-mode)
   (require-package 'scala-mode2)
-  (require-package 'elixir-mode)
   (require-package 'coffee-mode)
   (require-package 'alchemist)
   (require-package 'powerline)
