@@ -9,6 +9,7 @@
 (require 'evil-visualstar)
 
 (setq evil-shift-width 2)
+(setq evil-want-fine-undo "No")
 
 (key-chord-mode t)
 (global-evil-leader-mode t)
