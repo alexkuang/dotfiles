@@ -30,6 +30,7 @@
   (require-package 'markdown-mode)
   (require-package 'scala-mode2)
   (require-package 'coffee-mode)
+  (require-package 'swift-mode)
   (require-package 'alchemist)
   (require-package 'powerline)
   (require-package 'powerline-evil)
