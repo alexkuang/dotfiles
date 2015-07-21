@@ -32,5 +32,10 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (sane-backup-files)
 (highlight-long-lines)
+(setq-default scroll-conservatively 1) ; scroll one line at a time
+
+(fset 'yes-or-no-p 'y-or-n-p) ; ask y/n instead of yes/no
+(setq inhibit-startup-message t)
+
 
 (provide 'general-config)

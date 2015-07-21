@@ -37,6 +37,8 @@ set ignorecase
 set smartcase
 set incsearch
 
+set term=xterm-256color
+
 set vb " visual bell so it stops making noise.
 
 set tags=./ctags,ctags;
@@ -181,3 +183,7 @@ vnoremap <leader>a- :Tabularize /-><CR>
 " also make leader-j act like acejump
 map <Leader>e <Plug>(easymotion-prefix)
 map <leader>j <Plug>(easymotion-s)
+
+let g:ctrlp_cmd = 'CtrlPMixed'
+
+nnoremap <leader>bk :bd<CR>

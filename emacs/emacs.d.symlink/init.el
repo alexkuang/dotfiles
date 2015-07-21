@@ -17,6 +17,7 @@
 (defun lang-load-hooks ()
   (require 'markdown-config)
   (require 'scala-config)
+  (require 'swift-config)
   (require 'web-config))
 
 ;;; load up funcs from split out files and call them

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# Author :
+# name : println(...)
+# key: p
+# --
+println(s"$1")
