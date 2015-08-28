@@ -164,6 +164,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 " Easier than hitting esc or C-c
 inoremap jk <Esc>
 
+nnoremap <CR> :
+
 nnoremap <leader>t :Dispatch<CR>
 nnoremap <leader>v :tabnew ~/.vimrc<CR>
 " use leader-leader to switch between current and last focused buffer

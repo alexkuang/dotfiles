@@ -6,6 +6,7 @@
 
 ;;; Misc
 (evil-set-toggle-key "C-M-z") ; because f clobbering my C-z...
+(define-key evil-normal-state-map (kbd "RET") 'evil-ex)
 
 
 ;;; Leader maps
