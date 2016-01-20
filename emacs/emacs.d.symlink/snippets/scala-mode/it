@@ -3,6 +3,6 @@
 #name : it("should ...")
 # key: it
 # --
-it ("should $1") {
+it("should $1") {
   ${0:pending}
 }

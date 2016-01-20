@@ -17,6 +17,7 @@
 (defun lang-load-hooks ()
   (require 'markdown-config)
   (require 'scala-config)
+  (require 'java-config)
   (require 'swift-config)
   (require 'web-config))
 

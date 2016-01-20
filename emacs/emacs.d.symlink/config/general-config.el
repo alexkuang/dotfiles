@@ -37,5 +37,7 @@
 (fset 'yes-or-no-p 'y-or-n-p) ; ask y/n instead of yes/no
 (setq inhibit-startup-message t)
 
+(setq large-file-warning-threshold nil) ; large etags at work.  :<
+
 
 (provide 'general-config)
