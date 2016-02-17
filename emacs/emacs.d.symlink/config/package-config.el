@@ -29,6 +29,7 @@
   (require-package 'key-chord)
   (require-package 'markdown-mode)
   (require-package 'scala-mode2)
+  (require-package 'haskell-mode)
   (require-package 'coffee-mode)
   (require-package 'swift-mode)
   (require-package 'alchemist)

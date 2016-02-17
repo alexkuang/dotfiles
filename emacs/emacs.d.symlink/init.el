@@ -15,6 +15,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "config"))
 
 (defun lang-load-hooks ()
+  (require 'haskell-config)
   (require 'markdown-config)
   (require 'scala-config)
   (require 'java-config)
