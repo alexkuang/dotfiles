@@ -23,7 +23,9 @@ set softtabstop=4
 set shiftwidth=4
 set textwidth=120
 
-set showtabline=2
+" tabline=2 shows buffers when only one tab; apparently this makes powerline do dumb things like redraw the screen a
+" lot.
+" set showtabline=2
 set nomodeline
 set nowrap
 set autoindent
@@ -58,6 +60,9 @@ hi CursorLine ctermfg=NONE ctermbg=233 cterm=BOLD
 " powerline
 set rtp+=~/.powerline/powerline/bindings/vim
 set laststatus=2
+
+" trying out fzf
+set rtp+=/usr/local/opt/fzf
 
 " code folding, still playing around
 set foldmethod=indent
@@ -186,6 +191,7 @@ vnoremap <leader>a- :Tabularize /-><CR>
 map <Leader>e <Plug>(easymotion-prefix)
 map <leader>j <Plug>(easymotion-s)
 
-let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_cmd = 'CtrlPMixed'
+nnoremap <C-p> :FZF<CR>
 
 nnoremap <leader>bk :bd<CR>
