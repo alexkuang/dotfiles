@@ -2,7 +2,7 @@ call pathogen#infect()
 Helptags " Also infect w/ docs from modules
 
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 
 autocmd!
 

@@ -4,8 +4,7 @@ if [ ! -f ~/.vim/autoload/pathogen.vim ]
 then
     echo '[vim] Installing pathogen...'
     mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-    curl -Sso ~/.vim/autoload/pathogen.vim \
-        https://tpo.pe/pathogen.vim
+    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
 
 # tlib + addon-mw-utils are dependencies for dispatch
