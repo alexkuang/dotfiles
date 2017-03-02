@@ -1,6 +1,3 @@
-# Don't track git config complete with email settings, since it changes between work/home
-git/gitconfig.symlink
-
 # Don't track emacs cachey things, like:
 # - elpa downloads
 # - projectile project dir
