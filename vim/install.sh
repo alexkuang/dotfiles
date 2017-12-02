@@ -1,34 +1,10 @@
 #!/bin/sh
 
-if [ ! -f ~/.vim/autoload/pathogen.vim ]
+if [ ! -f ~/.vim/pack/minpac/opt/minpac ]
 then
-    echo '[vim] Installing pathogen...'
-    mkdir -p ~/.vim/autoload ~/.vim/bundle; \
-    curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    echo '[vim] Installing minpac...'
+    mkdir -p ~/.vim/pack/minpac/opt
+    git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
 fi
-
-# tlib + addon-mw-utils are dependencies for dispatch
-pathogen_dir="$HOME/.vim/bundle"
-pathogen_modules=('junegunn/fzf.vim' 'derekwyatt/vim-scala' 'kien/rainbow_parentheses.vim' 'tomtom/tlib_vim'
-'MarcWeber/vim-addon-mw-utils' 'tpope/vim-dispatch' 'tpope/vim-surround' 'tpope/vim-repeat' 'godlygeek/tabular'
-'tpope/vim-abolish' 'tpope/vim-commentary' 'tommcdo/vim-exchange' 'SirVer/ultisnips' 'roman/golden-ratio'
-'bronson/vim-visual-star-search' 'Lokaltog/vim-easymotion' 'haya14busa/incsearch.vim' 'Keithbsmiley/swift.vim',
-'chriskempson/base16-vim')
-
-echo '[vim] Installing pathogen modules...'
-for module in "${pathogen_modules[@]}"
-do
-    # `basename` is kind of hacky here, but I can't think of a better way to do it at the moment.
-    module_name="`basename $module`"
-    module_dir="$pathogen_dir/$module_name"
-
-    if [ ! -d $module_dir ]
-    then
-        echo "[vim]   Installing $module_name..."
-        # Using https so it doesn't error if we don't have a github account
-        module_repo="https://github.com/${module}.git"
-        git clone $module_repo $module_dir
-    fi
-done
 
 exit 0
