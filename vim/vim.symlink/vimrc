@@ -85,30 +85,20 @@ set nofoldenable
 " wipe trailing whitespace before saving; let's hope this regex is right!  :D
 autocmd BufWritePre * :%s/\s\+$//e
 
+augroup ActivateRainbow
+    autocmd!
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup END
+
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bunch of silly things to make rainbow parens work with tabs.
-" See: http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
-function! Config_Rainbow()
-    call rainbow_parentheses#load(0)
-    call rainbow_parentheses#load(1)
-    call rainbow_parentheses#load(2)
-endfunction
-
-function! Load_Rainbow()
-    call rainbow_parentheses#activate()
-endfunction
-
-augroup ActivateRainbow
-    autocmd!
-    autocmd Syntax * call Config_Rainbow()
-    autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
-augroup END
-
 " If in a spec file, emit class under test; otherwise, emit spec file
 " Makes some assumptions about your package structure, and about your cwd, but too lazy to fix.  :P
 function! ScalaSpecAlt()
