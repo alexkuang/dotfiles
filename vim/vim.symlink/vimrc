@@ -36,8 +36,6 @@ silent! colorscheme base16-default-dark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set history=25
-set showmode
-set showcmd
 set expandtab
 set hlsearch
 set backspace=2
@@ -47,14 +45,10 @@ set softtabstop=4
 set shiftwidth=4
 set textwidth=120
 
-set nomodeline
 set nowrap
 set autoindent
-set formatoptions-=u
 set fileformats=unix,dos
 set fileformat=unix
-set fileencodings=ucs-bom,utf-8,default,latin1
-set fileencoding=utf-8
 set shellslash
 set ignorecase
 set smartcase
@@ -142,9 +136,6 @@ set wildignore+=*.jar
 " For js
 set wildignore+=*/node_modules/**
 
-" Make rvm work in vim; it's because vim doesn't load .zshrc, which rvm relies on for shell magic.
-set shell=bash
-
 " Silly markdown
 let g:vim_markdown_folding_disabled=1
 
@@ -168,7 +159,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap jk <Esc>
 
 nnoremap <CR> :
-nnoremap <C-c> <CR>
 
 nnoremap <leader>t :Dispatch<CR>
 nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
