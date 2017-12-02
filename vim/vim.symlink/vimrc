@@ -89,7 +89,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 let g:rainbow_active = 1
 
 let g:airline_powerline_fonts = 1
-au VimEnter * silent! AirlineTheme badwolf
+let g:airline_theme = 'badwolf'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
