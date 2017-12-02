@@ -40,8 +40,6 @@ set ignorecase
 set smartcase
 set incsearch
 
-set term=xterm-256color
-
 set vb " visual bell so it stops making noise.
 
 set tags=./ctags,ctags;
@@ -178,7 +176,7 @@ nnoremap <leader>v :tabnew ~/.vimrc<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>
 " Really hacky way to 'temporarily' disable hlsearch, cough cough
-nnoremap <silent> <leader>hl :silent! /asdfasdfwtfbbq<CR>
+nnoremap <leader>hl nohlsearch<CR>
 nnoremap <leader>n :set number!<CR>
 
 " Tabular maps; a='align'
@@ -187,12 +185,6 @@ vnoremap <leader>a= :Tabularize /=><CR>
 nnoremap <leader>a- :Tabularize /-><CR>
 vnoremap <leader>a- :Tabularize /-><CR>
 
-" hack to keep easymotion from clobbering my leader-leader...
-" also make leader-j act like acejump
-map <Leader>e <Plug>(easymotion-prefix)
-map <leader>j <Plug>(easymotion-s)
-
-" let g:ctrlp_cmd = 'CtrlPMixed'
 nnoremap <C-p> :FZF<CR>
 
 nnoremap <leader>bk :bd<CR>
