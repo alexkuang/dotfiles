@@ -168,6 +168,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 inoremap jk <Esc>
 
 nnoremap <CR> :
+nnoremap <C-c> <CR>
 
 nnoremap <leader>t :Dispatch<CR>
 nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
@@ -175,7 +176,7 @@ nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>
 " Really hacky way to 'temporarily' disable hlsearch, cough cough
-nnoremap <leader>hl nohlsearch<CR>
+nnoremap <leader>hl :nohlsearch<CR>
 nnoremap <leader>n :set number!<CR>
 
 " Tabular maps; a='align'
