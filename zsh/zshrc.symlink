@@ -32,8 +32,6 @@ done
 
 unset config_files
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # Some fanciness--instead of fg, just hit C-z again
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -58,14 +56,12 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 
-export FZF_DEFAULT_OPTS="--exact --extended"
+export FZF_DEFAULT_OPTS="--exact --extended --preview 'cat {}'"
 
 # support 256 colors
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-default-dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.dotfiles/bin" # Add dotfile execs to path
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
