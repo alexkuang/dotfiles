@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install ag vim emacs tmux zsh
+brew install ag vim emacs tmux zsh neovim
 
 exit 0
