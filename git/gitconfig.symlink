@@ -16,6 +16,7 @@
         co = checkout
         ba = branch -a
         bd = branch -d
+        rb = rebase --autosquash --interactive
 [color]
         diff = auto
         status = auto
