@@ -12,7 +12,4 @@ then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)" > /tmp/homebrew-install.log
 fi
 
-# Install homebrew packages
-brew install ag vim emacs tmux zsh neovim
-
 exit 0

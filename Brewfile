@@ -1,0 +1,21 @@
+cask_args appdir: '/Applications'
+
+tap 'homebrew/bundle'
+
+brew 'ag'
+brew 'coreutils'
+brew 'fzf'
+brew 'jq'
+brew 'neovim'
+brew 'scala'
+brew 'tmux'
+brew 'vim'
+brew 'zsh'
+
+cask 'dash'
+cask 'evernote'
+cask 'firefox'
+cask 'omnifocus'
+cask 'slack'
+cask 'spectacle'
+cask 'vlc'
