@@ -132,6 +132,7 @@ au BufRead,BufNewFile Jenkinsfile,*.jenkinsfile set filetype=groovy
 autocmd FileType ruby,Gemfile,yaml,javascript set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+autocmd FileType python let b:dispatch = 'python3 -m unittest'
 autocmd FileType html,css set shiftwidth=2 expandtab
 autocmd FileType java,xml set smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType make set noexpandtab shiftwidth=8
@@ -140,6 +141,10 @@ autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType ts set noexpandtab shiftwidth=2
+
+" turn off double indents for python
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_continue = '&sw'
 
 " For scala + clojure
 set wildignore+=*/target/**
