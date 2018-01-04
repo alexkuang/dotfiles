@@ -30,7 +30,10 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 " remove all previous autocommands to help idempotence
 autocmd!
 
-silent! colorscheme base16-default-dark
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
