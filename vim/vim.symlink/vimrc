@@ -8,6 +8,7 @@ if exists('*minpac#init')
     call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('godlygeek/tabular')
+    call minpac#add('hashivim/vim-terraform')
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('justinmk/vim-sneak')
     call minpac#add('luochen1990/rainbow')
@@ -154,8 +155,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
-
-
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General leader maps and such
