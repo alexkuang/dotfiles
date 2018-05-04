@@ -120,7 +120,7 @@ set -g message-attr bright
 
 # enable mouse controls
 # For even better experience, iterm2 => Prefs => General => "Applications in terminal may access clipboard"
-set -g mode-mouse on
+set -g mouse on
 
 # force a reload of the config file
 unbind r
