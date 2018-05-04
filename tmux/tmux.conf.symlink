@@ -118,9 +118,9 @@ set -g message-fg white
 set -g message-bg black
 set -g message-attr bright
 
-# mouse scrolling!
-# Breaks copy paste; not sure how to fix properly
-# setw -g mode-mouse on
+# enable mouse controls
+# For even better experience, iterm2 => Prefs => General => "Applications in terminal may access clipboard"
+set -g mode-mouse on
 
 # force a reload of the config file
 unbind r
