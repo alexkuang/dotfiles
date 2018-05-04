@@ -44,3 +44,5 @@
         followTags = true
 [pull]
         rebase = true
+[merge]
+        ff = false
