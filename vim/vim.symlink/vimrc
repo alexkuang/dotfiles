@@ -23,6 +23,7 @@ if exists('*minpac#init')
     call minpac#add('vim-airline/vim-airline-themes')
     call minpac#add('vim-jp/syntax-vim-ex')
     call minpac#add('wellle/targets.vim')
+    call minpac#add('benmills/vimux')
 endif
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
@@ -177,7 +178,7 @@ inoremap jk <Esc>
 nnoremap <CR> :
 
 nnoremap <leader>t :Dispatch<CR>
-nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
+" nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
 " use leader-leader to switch between current and last focused buffer
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>
@@ -194,3 +195,7 @@ vnoremap <leader>a- :Tabularize /-><CR>
 nnoremap <C-p> :FZF<CR>
 
 nnoremap <leader>bk :bd<CR>
+
+nnoremap <leader>vo :call VimuxOpenRunner()<CR>
+nnoremap <leader>vq :VimuxCloseRunner<CR>
+nnoremap <leader>vl :VimuxRunLastCommand<CR>
