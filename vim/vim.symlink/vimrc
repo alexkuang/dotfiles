@@ -118,8 +118,14 @@ function! OpenScalaSpecAlt()
     exec ':e ' . ScalaSpecAlt()
 endfunction
 
-
-
+" Like VimuxSlime, but specific to scala repl
+function! VimuxSlime()
+    call VimuxSendText(":paste")
+    call VimuxSendKeys("Enter")
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+    call VimuxSendKeys("C-d")
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " language/plugin-specific configs
@@ -140,6 +146,7 @@ autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 " use leader-s to switch between class and spec file
 autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
+autocmd FileType scala vnoremap <leader>vs "vy :call VimuxSlime()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType ts set noexpandtab shiftwidth=2
 
