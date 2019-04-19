@@ -26,6 +26,7 @@ if exists('*minpac#init')
     call minpac#add('vim-jp/syntax-vim-ex')
     call minpac#add('wellle/targets.vim')
     call minpac#add('benmills/vimux')
+    call minpac#add('leafgarland/typescript-vim')
 endif
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
@@ -121,12 +122,17 @@ function! OpenScalaSpecAlt()
 endfunction
 
 " Like VimuxSlime, but specific to scala repl
-function! VimuxSlime()
+function! VimuxScala()
     call VimuxSendText(":paste")
     call VimuxSendKeys("Enter")
     call VimuxSendText(@v)
     call VimuxSendKeys("Enter")
     call VimuxSendKeys("C-d")
+endfunction
+
+function! VimuxShell()
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,7 +154,8 @@ autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 " use leader-s to switch between class and spec file
 autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
-autocmd FileType scala vnoremap <leader>vs "vy :call VimuxSlime()<cr>
+autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
+autocmd FileType scala vnoremap <leader>vz "vy :call VimuxShell()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType ts set noexpandtab shiftwidth=2
 
@@ -172,6 +179,11 @@ let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 let g:terraform_fmt_on_save = 1
 let g:terraform_align = 1
+
+" sorting all the scala imports
+let g:scala_sort_across_groups=1
+let g:scala_scaladoc_indent=1
+let g:scala_first_party_namespaces="io.narrative"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General leader maps and such
