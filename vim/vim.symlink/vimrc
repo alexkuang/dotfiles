@@ -4,8 +4,10 @@ if exists('*minpac#init')
     " have minpac manage itself
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-    call minpac#add('SirVer/ultisnips')
-    call minpac#add('chriskempson/base16-vim')
+    " bug introduced to plugin as of vim 8.1, and maintainer is not around to fix.  Switching to unofficial fork for
+    " now.
+    " call minpac#add('chriskempson/base16-vim')
+    call minpac#add('danielwe/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('godlygeek/tabular')
     call minpac#add('hashivim/vim-terraform')
