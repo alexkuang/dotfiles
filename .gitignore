@@ -7,3 +7,4 @@ emacs/emacs.d.symlink/projectile.cache
 emacs/emacs.d.symlink/eshell/history
 emacs/emacs.d.symlink/eshell/lastdir
 vim/vim.symlink/pack
+vim/vim.symlink/.netrwhist
