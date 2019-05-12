@@ -1,0 +1,3 @@
+[submodule "tmux/tmux.symlink"]
+	path = tmux/tmux.symlink
+	url = https://github.com/gpakosz/.tmux
