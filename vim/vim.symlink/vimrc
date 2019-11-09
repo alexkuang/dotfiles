@@ -158,6 +158,7 @@ autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala vnoremap <leader>vz "vy :call VimuxShell()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
+autocmd FileType elixir let b:dispatch = 'mix test'
 autocmd FileType ts set noexpandtab shiftwidth=2
 
 " turn off double indents for python
