@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 
 brew 'ag'
 brew 'coreutils'
+brew 'fd'
 brew 'fzf'
 brew 'git'
 brew 'highlight'
