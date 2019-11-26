@@ -157,7 +157,6 @@ autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 " use leader-s to switch between class and spec file
 autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
-autocmd FileType scala vnoremap <leader>vz "vy :call VimuxShell()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType elixir let b:dispatch = 'mix test'
 autocmd FileType ts set noexpandtab shiftwidth=2
@@ -223,3 +222,4 @@ nnoremap <leader>bk :bd<CR>
 nnoremap <leader>vo :call VimuxOpenRunner()<CR>
 nnoremap <leader>vq :VimuxCloseRunner<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
+vnoremap <leader>vz "vy :call VimuxShell()<cr>
