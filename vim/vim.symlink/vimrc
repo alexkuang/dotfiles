@@ -7,7 +7,7 @@ if exists('*minpac#init')
     " bug introduced to plugin as of vim 8.1, and maintainer is not around to fix.  Switching to unofficial fork for
     " now.
     " call minpac#add('chriskempson/base16-vim')
-    call minpac#add('danielwe/base16-vim')
+    call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('godlygeek/tabular')
     call minpac#add('hashivim/vim-terraform')
