@@ -14,7 +14,7 @@ __I have no idea what I'm doing.__  Please take everything written here with a g
 ## installing
 
 ```sh
-git clone https://github.com/alexkuang/dotfiles.git ~/.dotfiles
+git clone git@github.com:alexkuang/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap # symlinks dotfiles, etc
 script/install # runs all install.sh's
