@@ -137,6 +137,13 @@ function! VimuxShell()
     call VimuxSendKeys("Enter")
 endfunction
 
+function! RgFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let spec = {'options': ['--query', a:query]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " language/plugin-specific configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -223,3 +230,5 @@ nnoremap <leader>vo :call VimuxOpenRunner()<CR>
 nnoremap <leader>vq :VimuxCloseRunner<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 vnoremap <leader>vz "vy :call VimuxShell()<cr>
+
+command! -nargs=* -bang Rg call RgFzf(<q-args>, <bang>0)
