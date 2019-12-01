@@ -4,9 +4,6 @@ if exists('*minpac#init')
     " have minpac manage itself
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
-    " bug introduced to plugin as of vim 8.1, and maintainer is not around to fix.  Switching to unofficial fork for
-    " now.
-    " call minpac#add('chriskempson/base16-vim')
     call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('godlygeek/tabular')
@@ -29,6 +26,23 @@ if exists('*minpac#init')
     call minpac#add('leafgarland/typescript-vim')
     call minpac#add('elixir-editors/vim-elixir')
     call minpac#add('SirVer/ultisnips')
+
+    " and now all the coc completion jazz
+    let g:coc_global_extensions = [
+                \ 'coc-css',
+                \ 'coc-elixir',
+                \ 'coc-html',
+                \ 'coc-tailwind-css',
+                \ 'coc-ultisnips'
+                \ ]
+
+    function! s:coc_plugins(hooktype, name) abort
+        execute 'packadd ' . a:name
+        call coc#util#install()
+        call coc#util#install_extension(g:coc_global_extensions)
+    endfunction
+
+    call minpac#add('https://github.com/neoclide/coc.nvim', {'do': function('s:coc_plugins')})
 endif
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
