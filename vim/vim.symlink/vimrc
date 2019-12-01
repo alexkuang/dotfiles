@@ -209,7 +209,7 @@ let g:scala_scaladoc_indent=1
 let g:scala_first_party_namespaces="io.narrative"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General leader maps and such
+" General maps and such
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 
@@ -218,6 +218,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<CR>
 
 " Easier than hitting esc or C-c
 inoremap jk <Esc>
+
+" fancier autocomplete, or something.
+inoremap <silent><expr> <c-n> coc#refresh()
 
 nnoremap <CR> :
 
