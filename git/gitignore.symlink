@@ -12,3 +12,6 @@ ctags
 # For scala/lift
 target/
 *.props
+
+# language server stuff
+.elixir_ls/
