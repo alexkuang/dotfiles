@@ -33,6 +33,7 @@ if exists('*minpac#init')
                 \ 'coc-elixir',
                 \ 'coc-html',
                 \ 'coc-tailwind-css',
+                \ 'coc-tsserver',
                 \ 'coc-ultisnips'
                 \ ]
 
