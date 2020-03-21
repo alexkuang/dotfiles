@@ -2,6 +2,8 @@
 #
 # set up asdf plugins and such
 
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
+
 asdf plugin-add python https://github.com/danhper/asdf-python.git
 
 asdf plugin-add ruby https://github.com/asdf-vm/asdf-ruby.git
