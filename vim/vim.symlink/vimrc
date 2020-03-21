@@ -167,6 +167,7 @@ filetype indent on
 filetype plugin on
 au BufRead,BufNewFile *.sc set filetype=scala
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.tsx set filetype=typescript.jsx "for some reason it defaults to 'typescriptreact'
 au BufRead,BufNewFile Jenkinsfile,*.jenkinsfile set filetype=groovy
 autocmd FileType ruby,Gemfile,yaml,javascript set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
