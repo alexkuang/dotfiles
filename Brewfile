@@ -16,6 +16,7 @@ cask 'vlc'
 
 brew 'asdf'
 brew 'coreutils'
+brew 'docker-compose'
 brew 'elixir'
 brew 'fd'
 brew 'fzf'
