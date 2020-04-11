@@ -349,7 +349,7 @@ unbind |
 bind | split-window -h -c '#{pane_current_path}'
 # And horizontal!  Pretty sure \ isn't used.
 # unbind \\
-bind \ split-window -c '#{pane_current_path}'
+bind \\ split-window -c '#{pane_current_path}'
 
 # :kB: focus up
 unbind Tab
