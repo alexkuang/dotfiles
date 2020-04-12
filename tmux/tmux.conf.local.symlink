@@ -354,6 +354,7 @@ unbind |
 bind | split-window -h -c '#{pane_current_path}'
 # And horizontal!  Pretty sure \ isn't used.
 # unbind \\
+unbind \\
 bind \\ split-window -c '#{pane_current_path}'
 
 # :kB: focus up
@@ -365,6 +366,7 @@ bind BTab select-pane -t:.-
 # " windowlist -b
 unbind '"'
 bind '"' choose-tree -F '#{window_index} #{pane_current_command} (#{pane_current_path})'
+unbind 'w'
 bind 'w' choose-tree -F '#{window_index} #{pane_current_command} (#{pane_current_path})'
 
 
