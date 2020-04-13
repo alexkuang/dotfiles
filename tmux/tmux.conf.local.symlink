@@ -131,7 +131,7 @@ tmux_conf_theme_window_status_format='#I #W (#(p=#{b:pane_current_path}; pl=$(ex
 tmux_conf_theme_window_status_current_fg='#000000'
 tmux_conf_theme_window_status_current_bg='#0000bb'
 tmux_conf_theme_window_status_current_attr='bold'
-tmux_conf_theme_window_status_current_format='#I #W'
+tmux_conf_theme_window_status_current_format='#I #W (#(p=#{b:pane_current_path}; pl=$(expr length $p); [[ $pl -gt 3 ]] && (echo $p) || (echo $(sed "s|^$HOME|~|" <<< #{pane_current_path} ))))'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
