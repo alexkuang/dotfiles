@@ -43,6 +43,6 @@
         default = simple
         followTags = true
 [pull]
-        rebase = true
-[merge]
-        ff = false
+	rebase = preserve
+[branch]
+	autosetuprebase = always
