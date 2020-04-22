@@ -43,7 +43,7 @@ if exists('*minpac#init')
         call coc#util#install_extension(g:coc_global_extensions)
     endfunction
 
-    call minpac#add('https://github.com/neoclide/coc.nvim', {'do': function('s:coc_plugins')})
+    call minpac#add('neoclide/coc.nvim', { 'branch': 'release', 'do': function('s:coc_plugins')})
 endif
 
 command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
