@@ -73,3 +73,4 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 export EDITOR=vim
 
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
