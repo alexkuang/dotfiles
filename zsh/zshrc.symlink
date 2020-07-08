@@ -54,7 +54,7 @@ fi
 
 # fzf
 [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ] && source /usr/local/opt/fzf/shell/key-bindings.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd'
 
 export FZF_DEFAULT_OPTS="--exact --extended --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || highlight -O xterm256 -l {} || cat {} 2> /dev/null | head -500' --bind '?:toggle-preview'"
 export FZF_CTRL_R_OPTS="--exact --extended --preview 'echo {}' --bind '?:toggle-preview' --preview-window 'right:wrap'"
