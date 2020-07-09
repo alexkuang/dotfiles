@@ -211,6 +211,31 @@ let g:scala_sort_across_groups=1
 let g:scala_scaladoc_indent=1
 let g:scala_first_party_namespaces="io.narrative"
 
+let g:projectionist_heuristics = {
+\   "tsconfig.json": {
+\     "src/*.test.ts": {
+\       "type": "test",
+\       "alternate": "src/{}.ts"
+\     },
+\     "src/*.ts": {
+\       "type": "source",
+\       "alternate": "src/{}.test.ts"
+\     },
+\     "src/*.stories.tsx": {
+\       "type": "story",
+\       "alternate": "src/{}.tsx"
+\     },
+\     "src/*.test.tsx": {
+\       "type": "test",
+\       "alternate": "src/{}.tsx"
+\     },
+\     "src/*.tsx": {
+\       "type": "source",
+\       "alternate": "src/{}.test.tsx"
+\     },
+\   },
+\ }
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General maps and such
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
