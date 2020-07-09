@@ -4,6 +4,7 @@
 *~
 *.swp
 *.rbc
+.npmrc
 tags
 # I want to use both ctags and etags, dammit
 etags

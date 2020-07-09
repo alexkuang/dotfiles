@@ -2,6 +2,7 @@
         path = ~/.gitconfig.local
 [user]
         useConfigOnly = true
+        name = Alex Kuang
 [credential]
         helper = osxkeychain
 [alias]
@@ -16,6 +17,7 @@
         co = checkout
         ba = branch -a
         bd = branch -d
+        bD = branch -D
         rb = rebase --autosquash --interactive
         pushf = push --force-with-lease
 [color]
