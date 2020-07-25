@@ -8,7 +8,7 @@ if exists('*minpac#init')
     call minpac#add('benmills/vimux')
     call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
-    call minpac#add('elixir-editors/vim-elixir')
+    call minpac#add('slashmili/alchemist.vim')
     call minpac#add('godlygeek/tabular')
     call minpac#add('hashivim/vim-terraform')
     call minpac#add('jparise/vim-graphql')
@@ -31,7 +31,6 @@ if exists('*minpac#init')
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
                 \ 'coc-css',
-                \ 'coc-elixir',
                 \ 'coc-html',
                 \ 'coc-tailwind-css',
                 \ 'coc-tsserver',
