@@ -30,7 +30,6 @@ if exists('*minpac#init')
 
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
-                \ 'coc-css',
                 \ 'coc-elixir',
                 \ 'coc-html',
                 \ 'coc-tailwind-css',
