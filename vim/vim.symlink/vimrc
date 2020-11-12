@@ -173,7 +173,7 @@ autocmd FileType ruby,Gemfile,yaml,javascript set shiftwidth=2 tabstop=2 softtab
 autocmd FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType python let b:dispatch = 'python3 -m unittest'
-autocmd FileType html,css set shiftwidth=2 expandtab
+autocmd FileType html,css,scss set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType java,xml set smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
@@ -182,6 +182,8 @@ autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType elixir let b:dispatch = 'mix test'
+" vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
+autocmd FileType elixir,eelixir set regexpengine=1
 autocmd FileType typescript,typescriptreact set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 
 " turn off double indents for python
