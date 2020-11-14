@@ -1,4 +1,5 @@
-if exists('*minpac#init')
+function! PackInit() abort
+    packadd minpac
     call minpac#init()
 
     " have minpac manage itself
@@ -43,11 +44,12 @@ if exists('*minpac#init')
         call coc#util#install_extension(g:coc_global_extensions)
     endfunction
 
-    call minpac#add('neoclide/coc.nvim', { 'branch': 'release', 'do': function('s:coc_plugins')})
-endif
+    call minpac#add('neoclide/coc.nvim', { 'branch': 'release' })
+endfunction
 
-command! PackUpdate packadd minpac | source $MYVIMRC | call minpac#update()
-command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus packadd minpac | call minpac#status()
 
 " remove all previous autocommands to help idempotence
 autocmd!
