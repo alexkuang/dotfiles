@@ -74,3 +74,6 @@ PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# `iex` history
+export ERL_AFLAGS="-kernel shell_history enabled"
