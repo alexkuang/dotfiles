@@ -49,3 +49,5 @@
 	rebase = preserve
 [branch]
 	autosetuprebase = always
+[rerere]
+	enabled = true
