@@ -99,8 +99,8 @@ set splitbelow
 set cursorline
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=BOLD
 
-" trying out fzf
 set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'down': '~40%' }
 
 " code folding, still playing around
 set foldmethod=indent
