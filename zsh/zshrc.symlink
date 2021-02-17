@@ -68,8 +68,8 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.dotfiles/bin" # Add dotfile execs to path
 
-# make coreutils take priority
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# make coreutils + findutils take priority
+PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH"
 
 export EDITOR=vim
 
