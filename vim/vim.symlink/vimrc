@@ -290,3 +290,8 @@ nnoremap <leader>vl :VimuxRunLastCommand<CR>
 vnoremap <leader>vz "vy :call VimuxShell()<cr>
 
 command! -nargs=* -bang Rg call RgFzf(<q-args>, <bang>0)
+
+" for machine-specific things
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
