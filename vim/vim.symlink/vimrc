@@ -140,7 +140,7 @@ function! OpenScalaSpecAlt()
     exec ':e ' . ScalaSpecAlt()
 endfunction
 
-" Like VimuxSlime, but specific to scala repl
+" Like VimuxShell, but specific to scala repl
 function! VimuxScala()
     call VimuxSendText(":paste")
     call VimuxSendKeys("Enter")
@@ -148,6 +148,17 @@ function! VimuxScala()
     call VimuxSendKeys("Enter")
     call VimuxSendKeys("C-d")
 endfunction
+
+" Like VimuxShell, but specific to iex repl
+function! VimuxElixir()
+    call VimuxSendText("(")
+    call VimuxSendKeys("Enter")
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+    call VimuxSendText(")")
+    call VimuxSendKeys("Enter")
+endfunction
+
 
 function! VimuxShell()
     call VimuxSendText(@v)
@@ -184,6 +195,7 @@ autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType elixir let b:dispatch = 'mix test'
+autocmd FileType elixir vnoremap <leader>vs "vy :call VimuxElixir()<cr>
 " vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
 autocmd FileType elixir,eelixir set regexpengine=1
 autocmd FileType typescript,typescriptreact set smartindent shiftwidth=2 tabstop=2 softtabstop=2
