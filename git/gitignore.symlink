@@ -5,10 +5,10 @@
 *.swp
 *.rbc
 .npmrc
-tags
+/tags
 # I want to use both ctags and etags, dammit
-etags
-ctags
+/etags
+/ctags
 
 # For scala/lift
 target/
