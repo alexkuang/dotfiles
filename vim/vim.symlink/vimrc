@@ -17,6 +17,7 @@ function! PackInit() abort
     call minpac#add('justinmk/vim-sneak')
     call minpac#add('luochen1990/rainbow')
     call minpac#add('roman/golden-ratio')
+    call minpac#add('rust-lang/rust.vim')
     call minpac#add('tommcdo/vim-exchange')
     call minpac#add('tpope/vim-abolish')
     call minpac#add('tpope/vim-dispatch')
