@@ -119,48 +119,6 @@ let g:airline_theme = 'badwolf'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions!
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" If in a spec file, emit class under test; otherwise, emit spec file
-" Makes some assumptions about your package structure, and about your cwd, but too lazy to fix.  :P
-function! ScalaSpecAlt()
-    let current_file = expand("%")
-    let new_file = current_file
-    let is_spec_file = match(current_file, 'src/test') != -1
-
-    if is_spec_file
-        let new_file = substitute(new_file, 'Spec.scala$', '.scala', '')
-        let new_file = substitute(new_file, 'src/test', 'src/main', '')
-    else
-        let new_file = substitute(new_file, '.scala$', 'Spec.scala', '')
-        let new_file = substitute(new_file, 'src/main', 'src/test', '')
-    endif
-
-    return new_file
-endfunction
-
-function! OpenScalaSpecAlt()
-    exec ':e ' . ScalaSpecAlt()
-endfunction
-
-function! ExSpecAlt()
-    let current_file = expand("%")
-    let new_file = current_file
-    let is_spec_file = match(current_file, '^test/') != -1
-
-    if is_spec_file
-        let new_file = substitute(new_file, '_test.exs$', '.ex', '')
-        let new_file = substitute(new_file, '^test/', 'lib/', '')
-    else
-        let new_file = substitute(new_file, '.ex$', '_test.exs', '')
-        let new_file = substitute(new_file, '^lib/', 'test/', '')
-    endif
-
-    return new_file
-endfunction
-
-function! OpenExSpecAlt()
-    exec ':e ' . ExSpecAlt()
-endfunction
-
 " Like VimuxShell, but specific to scala repl
 function! VimuxScala()
     call VimuxSendText(":paste")
@@ -212,12 +170,12 @@ autocmd FileType java,xml set smartindent shiftwidth=2 tabstop=2 softtabstop=2 e
 autocmd FileType make set noexpandtab shiftwidth=8
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 " use leader-s to switch between class and spec file
-autocmd FileType scala nnoremap <leader>s :call OpenScalaSpecAlt()<cr>
+autocmd FileType scala nnoremap <leader>s :A<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType elixir let b:dispatch = 'mix test'
 autocmd FileType elixir vnoremap <leader>vs "vy :call VimuxElixir()<cr>
-autocmd FileType elixir nnoremap <leader>s :call OpenExSpecAlt()<cr>
+autocmd FileType elixir nnoremap <leader>s :A<cr>
 " vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
 autocmd FileType elixir,eelixir set regexpengine=1
 autocmd FileType typescript,typescriptreact set smartindent shiftwidth=2 tabstop=2 softtabstop=2
@@ -270,6 +228,16 @@ let g:projectionist_heuristics = {
 \       "type": "source",
 \       "alternate": "src/{}.test.tsx"
 \     },
+\   },
+\   "build.sbt": {
+\     "src/main/scala/*.scala": {
+\       "alternate": "src/test/scala/{}Spec.scala",
+\       "type": "source"
+\     },
+\     "src/test/scala/*Spec.scala": {
+\       "alternate": "src/main/scala/{}.scala",
+\       "type": "test"
+\     }
 \   },
 \   "mix.exs": {
 \     "lib/*.ex": {
