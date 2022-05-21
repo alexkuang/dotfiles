@@ -10,7 +10,6 @@ function! PackInit() abort
     call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('elixir-editors/vim-elixir')
-    call minpac#add('godlygeek/tabular')
     call minpac#add('hashivim/vim-terraform')
     call minpac#add('jparise/vim-graphql')
     call minpac#add('junegunn/fzf.vim')
@@ -275,12 +274,6 @@ nnoremap <leader>w :set wrap!<CR>
 " Really hacky way to 'temporarily' disable hlsearch, cough cough
 nnoremap <leader>hl :nohlsearch<CR>
 nnoremap <leader>n :set number!<CR>
-
-" Tabular maps; a='align'
-nnoremap <leader>a= :Tabularize /=><CR>
-vnoremap <leader>a= :Tabularize /=><CR>
-nnoremap <leader>a- :Tabularize /-><CR>
-vnoremap <leader>a- :Tabularize /-><CR>
 
 nnoremap <C-p> :FZF<CR>
 
