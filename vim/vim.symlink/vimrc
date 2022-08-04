@@ -177,6 +177,11 @@ autocmd FileType elixir vnoremap <leader>vs "vy :call VimuxElixir()<cr>
 autocmd FileType elixir nnoremap <leader>s :A<cr>
 " vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
 autocmd FileType elixir,eelixir set regexpengine=1
+" b/c some sort of drama about file types
+" https://github.com/elixir-editors/vim-elixir/issues/562
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
 autocmd FileType typescript,typescriptreact set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 
 " turn off double indents for python
