@@ -32,8 +32,6 @@ function! PackInit() abort
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
                 \ 'coc-elixir',
-                \ 'coc-html',
-                \ 'coc-tailwind-css',
                 \ 'coc-tsserver',
                 \ 'coc-ultisnips'
                 \ ]
@@ -172,7 +170,7 @@ autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType scala nnoremap <leader>s :A<cr>
 autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
-autocmd FileType elixir let b:dispatch = 'mix test'
+autocmd FileType elixir let b:dispatch = 'mix test %'
 autocmd FileType elixir vnoremap <leader>vs "vy :call VimuxElixir()<cr>
 autocmd FileType elixir nnoremap <leader>s :A<cr>
 " vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
