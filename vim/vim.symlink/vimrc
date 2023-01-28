@@ -95,7 +95,7 @@ set splitbelow
 set cursorline
 hi CursorLine ctermfg=NONE ctermbg=233 cterm=BOLD
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=$HOMEBREW_PREFIX/opt/fzf
 let g:fzf_layout = { 'down': '~40%' }
 
 " code folding, still playing around

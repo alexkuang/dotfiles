@@ -53,7 +53,7 @@ then
 fi
 
 # fzf
-[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ] && source /usr/local/opt/fzf/shell/key-bindings.zsh
+[ -f $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh ] && source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 export FZF_DEFAULT_COMMAND='fd'
 
 export FZF_DEFAULT_OPTS="--exact --extended --preview '[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || highlight -O xterm256 -l {} || cat {} 2> /dev/null | head -500' --bind '?:toggle-preview'"
@@ -72,7 +72,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # try out fish-like syntax highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rust + solana
 . "$HOME/.cargo/env"

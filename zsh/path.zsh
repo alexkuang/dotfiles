@@ -3,3 +3,5 @@ export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbi
 export PATH="$PATH:$HOME/.dotfiles/bin:/opt/homebrew/bin"
 
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:$PATH"
+
+eval "$(brew shellenv)"
