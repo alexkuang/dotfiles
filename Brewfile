@@ -15,6 +15,7 @@ cask 'obsidian'
 cask 'omnifocus'
 cask 'slack'
 cask 'spectacle'
+cask 'zoom'
 
 brew 'asdf'
 brew 'coreutils'
