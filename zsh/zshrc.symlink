@@ -72,7 +72,7 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # try out fish-like syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rust + solana
 . "$HOME/.cargo/env"
