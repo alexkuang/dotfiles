@@ -73,6 +73,10 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # `iex` history
 export ERL_AFLAGS="-kernel shell_history enabled"
 
+# EMBIGGEN
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
 # try out fish-like syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
