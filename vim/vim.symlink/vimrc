@@ -6,6 +6,7 @@ function! PackInit() abort
     call minpac#add('k-takata/minpac', {'type': 'opt'})
 
     call minpac#add('benmills/vimux')
+    call minpac#add('catppuccin/vim')
     call minpac#add('chriskempson/base16-vim')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('elixir-editors/vim-elixir')
@@ -13,7 +14,6 @@ function! PackInit() abort
     call minpac#add('jparise/vim-graphql')
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('justinmk/vim-sneak')
-    call minpac#add('luochen1990/rainbow')
     call minpac#add('roman/golden-ratio')
     call minpac#add('rust-lang/rust.vim')
     call minpac#add('tommcdo/vim-exchange')
@@ -50,8 +50,8 @@ command! PackStatus packadd minpac | call minpac#status()
 " remove all previous autocommands to help idempotence
 autocmd!
 
-let base16colorspace=256
-colorscheme base16-default-dark
+set termguicolors
+colorscheme catppuccin_mocha
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
@@ -103,11 +103,7 @@ set nofoldenable
 " wipe trailing whitespace before saving; let's hope this regex is right!  :D
 autocmd BufWritePre * :%s/\s\+$//e
 
-let g:rainbow_active = 1
-
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'badwolf'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom functions!
