@@ -22,6 +22,7 @@ cask 'vlc'
 cask 'zoom'
 
 brew 'asdf'
+brew 'awscli'
 brew 'coreutils'
 brew 'docker-compose'
 brew 'elixir'
