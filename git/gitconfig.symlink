@@ -20,7 +20,7 @@
         bd = branch -d
         bD = branch -D
         rb = rebase --autosquash --interactive
-        pushf = push --force-with-lease
+        pf = push --force-with-lease
 [color]
         diff = auto
         status = auto
@@ -46,10 +46,11 @@
         # Setting to git 2.0 default to surpress warning message
         default = simple
         followTags = true
+        autoSetupRemote = true
 [pull]
 	rebase = merges
 [branch]
-	autosetuprebase = always
+	autoSetupRebase = always
 [rerere]
 	enabled = true
 [init]
