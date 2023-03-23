@@ -12,6 +12,7 @@
         d = diff
         dt = difftool
         dc = diff --cached
+        fp = fetch -p
         st = status
         com = commit
         comf = commit --fixup
@@ -21,6 +22,7 @@
         bD = branch -D
         rb = rebase --autosquash --interactive
         pf = push --force-with-lease
+        pp = pull -p
 [color]
         diff = auto
         status = auto
