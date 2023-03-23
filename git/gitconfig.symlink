@@ -6,23 +6,22 @@
 [credential]
         helper = osxkeychain
 [alias]
-        count   = !git shortlog -sn
-        # Shamelessly stolen from http://fredkschott.com/post/2014/02/git-log-is-so-2005/
-        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-        d = diff
-        dt = difftool
-        dc = diff --cached
-        fp = fetch -p
-        st = status
-        com = commit
-        comf = commit --fixup
-        co = checkout
+        bD = branch -D
         ba = branch -a
         bd = branch -d
-        bD = branch -D
-        rb = rebase --autosquash --interactive
+        co = checkout
+        com = commit
+        comf = commit --fixup
+        d = diff
+        dc = diff --cached
+        dt = difftool
+        fp = fetch -p
+        # Shamelessly stolen from http://fredkschott.com/post/2014/02/git-log-is-so-2005/
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
         pf = push --force-with-lease
         pp = pull -p
+        rb = rebase --autosquash --interactive
+        st = status
 [color]
         diff = auto
         status = auto
