@@ -30,8 +30,7 @@ function! PackInit() abort
 
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
-                \ 'coc-elixir',
-                \ 'coc-tsserver'
+                \ 'coc-elixir'
                 \ ]
 
     function! s:coc_plugins(hooktype, name) abort
@@ -91,7 +90,10 @@ set splitbelow
 
 " cursorline and such; 233 => basically darkest gray that's noticeable
 set cursorline
-hi CursorLine ctermfg=NONE ctermbg=233 cterm=BOLD
+hi CursorLine ctermfg=NONE ctermbg=NONE cterm=BOLD
+" fix semi-transparency even with themes lol
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 set rtp+=$HOMEBREW_PREFIX/opt/fzf
 let g:fzf_layout = { 'down': '~40%' }
@@ -127,7 +129,6 @@ function! VimuxElixir()
     call VimuxSendKeys("Enter")
 endfunction
 
-
 function! VimuxShell()
     call VimuxSendText(@v)
     call VimuxSendKeys("Enter")
@@ -158,6 +159,7 @@ autocmd FileType scala vnoremap <leader>vs "vy :call VimuxScala()<cr>
 autocmd FileType scala let b:dispatch = 'sbt compile'
 autocmd FileType elixir let b:dispatch = 'mix test %'
 autocmd FileType elixir vnoremap <leader>vs "vy :call VimuxElixir()<cr>
+autocmd FileType elixir nnoremap <leader>vr :call VimuxSendText("recompile") \| call VimuxSendKeys("Enter")<cr>
 autocmd FileType elixir nnoremap <leader>s :A<cr>
 " vim-elixir's syntax highlighting seems to be a bit sluggish, so try this out.
 autocmd FileType elixir,eelixir set regexpengine=1
@@ -254,7 +256,6 @@ let g:coc_node_path = "~/.nvm/versions/node/v16.14.0/bin/node"
 nnoremap <CR> :
 
 nnoremap <leader>t :Dispatch<CR>
-" nnoremap <leader>v :tabnew ~/.vim/vimrc<CR>
 " use leader-leader to switch between current and last focused buffer
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>w :set wrap!<CR>

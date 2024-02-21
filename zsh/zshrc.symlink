@@ -65,7 +65,8 @@ export EDITOR=vim
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # `iex` history
-export ERL_AFLAGS="-kernel shell_history enabled"
+export ERL_AFLAGS="-kernel shell_history enabled shell_history_file_bytes 1024000"
+export ELIXIR_ERL_OPTIONS="-kernel shell_history enabled shell_history_file_bytes 1024000"
 
 # EMBIGGEN
 export HISTSIZE=1000000
