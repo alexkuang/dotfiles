@@ -30,7 +30,8 @@ function! PackInit() abort
 
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
-                \ 'coc-elixir'
+                \ 'coc-elixir',
+                \ 'coc-tsserver'
                 \ ]
 
     function! s:coc_plugins(hooktype, name) abort
