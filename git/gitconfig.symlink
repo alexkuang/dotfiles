@@ -3,6 +3,7 @@
 [user]
         useConfigOnly = true
         name = Alex Kuang
+        email = alex@bikeshed.coffee
 [credential]
         helper = osxkeychain
 [alias]
