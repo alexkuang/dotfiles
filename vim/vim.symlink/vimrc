@@ -271,6 +271,7 @@ nnoremap <leader>bk :bd<CR>
 nnoremap <leader>vo :call VimuxOpenRunner()<CR>
 nnoremap <leader>vq :VimuxCloseRunner<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
+vnoremap <leader>vs "vy :call VimuxShell()<cr>
 vnoremap <leader>vz "vy :call VimuxShell()<cr>
 
 " for machine-specific things
