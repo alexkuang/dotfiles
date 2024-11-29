@@ -68,9 +68,15 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ERL_AFLAGS="-kernel shell_history enabled shell_history_file_bytes 1024000"
 export ELIXIR_ERL_OPTIONS="-kernel shell_history enabled shell_history_file_bytes 1024000"
 
-# EMBIGGEN
+# zsh history settings
+# embiggen history file
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+setopt APPEND_HISTORY
+# append immediately instead of @ shell exit
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
 
 # try out fish-like syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
