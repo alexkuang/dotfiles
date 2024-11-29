@@ -14,6 +14,7 @@ function! PackInit() abort
     call minpac#add('jparise/vim-graphql')
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('justinmk/vim-sneak')
+    call minpac#add('NoahTheDuke/vim-just')
     call minpac#add('roman/golden-ratio')
     call minpac#add('rust-lang/rust.vim')
     call minpac#add('tommcdo/vim-exchange')
@@ -25,7 +26,6 @@ function! PackInit() abort
     call minpac#add('tpope/vim-surround')
     call minpac#add('vim-airline/vim-airline')
     call minpac#add('vim-airline/vim-airline-themes')
-    call minpac#add('vim-jp/syntax-vim-ex')
     call minpac#add('wellle/targets.vim')
 
     " and now all the coc completion jazz
