@@ -8,13 +8,9 @@ function! PackInit() abort
     call minpac#add('benmills/vimux')
     call minpac#add('catppuccin/vim')
     call minpac#add('chriskempson/base16-vim')
-    call minpac#add('derekwyatt/vim-scala')
-    call minpac#add('elixir-editors/vim-elixir')
-    call minpac#add('hashivim/vim-terraform')
-    call minpac#add('jparise/vim-graphql')
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('justinmk/vim-sneak')
-    call minpac#add('NoahTheDuke/vim-just')
+    call minpac#add('michaeljsmith/vim-indent-object')
     call minpac#add('roman/golden-ratio')
     call minpac#add('rust-lang/rust.vim')
     call minpac#add('tommcdo/vim-exchange')
@@ -27,6 +23,11 @@ function! PackInit() abort
     call minpac#add('vim-airline/vim-airline')
     call minpac#add('vim-airline/vim-airline-themes')
     call minpac#add('wellle/targets.vim')
+
+    call minpac#add('derekwyatt/vim-scala')
+    call minpac#add('elixir-editors/vim-elixir')
+    call minpac#add('jparise/vim-graphql')
+    call minpac#add('NoahTheDuke/vim-just')
 
     " and now all the coc completion jazz
     let g:coc_global_extensions = [
@@ -55,13 +56,11 @@ colorscheme catppuccin_mocha
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
-" TODO A lot of these settings are pretty naive and from early days, should probably update them lol.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set history=25
 set expandtab
 set hlsearch
-set backspace=2
 set tabstop=4
 set ruler
 set softtabstop=4
@@ -72,12 +71,11 @@ set nowrap
 set autoindent
 set fileformats=unix,dos
 set fileformat=unix
-set shellslash
 set ignorecase
 set smartcase
 set incsearch
 
-set vb " visual bell so it stops making noise.
+set belloff=all
 
 set tags=./ctags,ctags;
 
@@ -183,9 +181,6 @@ set wildignore+=*/node_modules/**
 
 " Silly markdown
 let g:vim_markdown_folding_disabled=1
-
-let g:terraform_fmt_on_save = 1
-let g:terraform_align = 1
 
 " sorting all the scala imports
 let g:scala_sort_across_groups=1
