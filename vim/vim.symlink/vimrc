@@ -140,6 +140,7 @@ filetype on
 filetype indent on
 filetype plugin on
 au BufRead .localrc set filetype=zsh
+au BufRead,BufNewFile *.njk set filetype=html "close enough
 au BufRead,BufNewFile *.sc set filetype=scala
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.tsx set filetype=typescript.jsx "for some reason it defaults to 'typescriptreact'
@@ -151,6 +152,7 @@ autocmd FileType python let b:dispatch = 'python3 -m unittest'
 autocmd FileType html,css,scss set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType java,xml set smartindent shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType make set noexpandtab shiftwidth=8
+autocmd FileType just set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType scala set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 " use leader-s to switch between class and spec file
 autocmd FileType scala nnoremap <leader>s :A<cr>
@@ -168,6 +170,7 @@ au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
 au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
 au BufRead,BufNewFile mix.lock set filetype=elixir
 autocmd FileType typescript,typescriptreact set smartindent shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript set smartindent shiftwidth=2 tabstop=2 softtabstop=2
 
 " turn off double indents for python
 let g:pyindent_open_paren = '&sw'
@@ -237,8 +240,9 @@ let g:projectionist_heuristics = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=" "
 
-" Neat little trick--expands into directory of current file in cmdline mode
+" expands for current file + directory of current file in cmd mode
 cnoremap %% <C-R>=expand('%:h').'/'<CR>
+cnoremap %$ <C-R>=expand('%')<CR>
 
 " Easier than hitting esc or C-c
 inoremap jk <Esc>
