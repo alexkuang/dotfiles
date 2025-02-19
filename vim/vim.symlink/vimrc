@@ -1,3 +1,6 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
 function! PackInit() abort
     packadd minpac
     call minpac#init()
