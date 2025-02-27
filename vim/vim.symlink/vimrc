@@ -69,6 +69,7 @@ set ruler
 set softtabstop=4
 set shiftwidth=4
 set textwidth=120
+set mouse= "defaults.vim sets `nvi`, explicitly disable
 
 set nowrap
 set autoindent
