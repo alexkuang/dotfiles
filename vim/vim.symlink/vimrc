@@ -259,7 +259,7 @@ inoremap jk <Esc>
 inoremap <silent><expr> <c-n> coc#refresh()
 " for whatever xxx-forsaken reason coc now wants a concrete node in the path??
 " should prob just switch off later
-let g:coc_node_path = "~/.nvm/versions/node/v16.14.0/bin/node"
+let g:coc_node_path = "/opt/homebrew/opt/nvm/versions/node/v16.14.0/bin/node"
 
 nnoremap <CR> :
 
