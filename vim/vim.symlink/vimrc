@@ -55,7 +55,13 @@ command! PackStatus packadd minpac | call minpac#status()
 autocmd!
 
 set termguicolors
-colorscheme catppuccin_mocha
+
+" bit hacky but still maybe slightly better than doing full minpac init
+if findfile('pack/minpac/start/vim/colors/catppuccin_mocha.vim', &runtimepath) != ''
+    colorscheme catppuccin_mocha
+else
+    echo "Couldn't find catpuccin color scheme."
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
