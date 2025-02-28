@@ -31,20 +31,6 @@ function! PackInit() abort
     call minpac#add('elixir-editors/vim-elixir')
     call minpac#add('jparise/vim-graphql')
     call minpac#add('NoahTheDuke/vim-just')
-
-    " and now all the coc completion jazz
-    let g:coc_global_extensions = [
-                \ 'coc-elixir',
-                \ 'coc-tsserver'
-                \ ]
-
-    function! s:coc_plugins(hooktype, name) abort
-        execute 'packadd ' . a:name
-        call coc#util#install()
-        call coc#util#install_extension(g:coc_global_extensions)
-    endfunction
-
-    call minpac#add('neoclide/coc.nvim', { 'branch': 'release' })
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update()
@@ -254,12 +240,6 @@ cnoremap %$ <C-R>=expand('%')<CR>
 
 " Easier than hitting esc or C-c
 inoremap jk <Esc>
-
-" fancier autocomplete, or something.
-inoremap <silent><expr> <c-n> coc#refresh()
-" for whatever xxx-forsaken reason coc now wants a concrete node in the path??
-" should prob just switch off later
-let g:coc_node_path = "/opt/homebrew/opt/nvm/versions/node/v16.14.0/bin/node"
 
 nnoremap <CR> :
 
