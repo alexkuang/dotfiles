@@ -5,3 +5,7 @@ export PATH="$PATH:$HOME/.dotfiles/bin:/opt/homebrew/bin"
 
 eval "$(brew shellenv)"
 export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
+
+# rust + solana
+. "$HOME/.cargo/env"
+export PATH="/Users/alexkuang/.local/share/solana/install/active_release/bin:$PATH"

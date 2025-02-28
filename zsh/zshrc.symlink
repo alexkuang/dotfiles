@@ -1,9 +1,6 @@
 # shortcut to this dotfiles path is $ZSH
 export ZSH=$HOME/.dotfiles
 
-# AUTO_TITLE in oh-my-zsh screws with tmux window renames
-export DISABLE_AUTO_TITLE=true
-
 # all of our zsh files
 typeset -U config_files
 config_files=($ZSH/**/*.zsh)
@@ -80,10 +77,3 @@ setopt HIST_IGNORE_DUPS
 
 # try out fish-like syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# rust + solana
-. "$HOME/.cargo/env"
-export PATH="/Users/alexkuang/.local/share/solana/install/active_release/bin:$PATH"
-
-# python
-export PATH="/Users/alexkuang/.local/bin:$PATH"
