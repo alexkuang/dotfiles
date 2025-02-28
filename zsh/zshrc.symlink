@@ -77,3 +77,5 @@ setopt HIST_IGNORE_DUPS
 
 # try out fish-like syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+. $(brew --prefix asdf)/libexec/asdf.sh
