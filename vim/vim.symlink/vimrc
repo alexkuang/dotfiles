@@ -11,6 +11,7 @@ function! PackInit() abort
     call minpac#add('benmills/vimux')
     call minpac#add('catppuccin/vim')
     call minpac#add('chriskempson/base16-vim')
+    call minpac#add('dense-analysis/ale')
     call minpac#add('junegunn/fzf.vim')
     call minpac#add('justinmk/vim-sneak')
     call minpac#add('michaeljsmith/vim-indent-object')
@@ -183,6 +184,21 @@ let g:vim_markdown_folding_disabled=1
 let g:scala_sort_across_groups=1
 let g:scala_scaladoc_indent=1
 let g:scala_first_party_namespaces="io.narrative"
+
+" all the elixir-ls + ale settings
+let g:ale_linters = {
+\    "elixir": ["elixir-ls"],
+\    "typescript": ["eslint", "tsserver"],
+\}
+
+let g:ale_fixers = {
+\    "elixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
+\    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
+\}
+
+let g:ale_elixir_elixir_ls_release = expand("~/.elixir-ls/release")
+
+let g:ale_fix_on_save = 1
 
 let g:projectionist_heuristics = {
 \   "tsconfig.json": {
