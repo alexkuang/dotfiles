@@ -16,7 +16,6 @@ function! PackInit() abort
     call minpac#add('justinmk/vim-sneak')
     call minpac#add('michaeljsmith/vim-indent-object')
     call minpac#add('roman/golden-ratio')
-    call minpac#add('rust-lang/rust.vim')
     call minpac#add('tommcdo/vim-exchange')
     call minpac#add('tpope/vim-abolish')
     call minpac#add('tpope/vim-dispatch')
@@ -25,13 +24,13 @@ function! PackInit() abort
     call minpac#add('tpope/vim-repeat')
     call minpac#add('tpope/vim-surround')
     call minpac#add('vim-airline/vim-airline')
-    call minpac#add('vim-airline/vim-airline-themes')
     call minpac#add('wellle/targets.vim')
 
+    call minpac#add('NoahTheDuke/vim-just')
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('elixir-editors/vim-elixir')
     call minpac#add('jparise/vim-graphql')
-    call minpac#add('NoahTheDuke/vim-just')
+    call minpac#add('rust-lang/rust.vim')
 endfunction
 
 command! PackUpdate call PackInit() | call minpac#update()
