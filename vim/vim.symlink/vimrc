@@ -30,6 +30,7 @@ function! PackInit() abort
     call minpac#add('derekwyatt/vim-scala')
     call minpac#add('elixir-editors/vim-elixir')
     call minpac#add('jparise/vim-graphql')
+    call minpac#add('leafOfTree/vim-svelte-plugin')
     call minpac#add('rust-lang/rust.vim')
 endfunction
 
@@ -141,7 +142,7 @@ au BufRead,BufNewFile *.sc set filetype=scala
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.tsx set filetype=typescript.jsx "for some reason it defaults to 'typescriptreact'
 au BufRead,BufNewFile Jenkinsfile,*.jenkinsfile set filetype=groovy
-autocmd FileType ruby,Gemfile,yaml,javascript set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType ruby,Gemfile,yaml,javascript,javascriptreact,svelte set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType python let b:dispatch = 'python3 -m unittest'
