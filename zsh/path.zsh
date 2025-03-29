@@ -9,3 +9,6 @@ export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/
 # rust + solana
 . "$HOME/.cargo/env"
 export PATH="/Users/alexkuang/.local/share/solana/install/active_release/bin:$PATH"
+
+# uv
+export PATH="/Users/alexkuang/.local/bin:$PATH"
