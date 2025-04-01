@@ -188,11 +188,13 @@ let g:scala_first_party_namespaces="io.narrative"
 " all the elixir-ls + ale settings
 let g:ale_linters = {
 \    "elixir": ["elixir-ls"],
+\    "eelixir": ["elixir-ls"],
 \    "typescript": ["eslint", "tsserver"],
 \}
 
 let g:ale_fixers = {
 \    "elixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
+\    "eelixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
 \    "*": ["trim_whitespace", "remove_trailing_lines"],
 \}
