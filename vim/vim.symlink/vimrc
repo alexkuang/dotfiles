@@ -185,16 +185,21 @@ let g:scala_sort_across_groups=1
 let g:scala_scaladoc_indent=1
 let g:scala_first_party_namespaces="io.narrative"
 
+" for some reason have to explicitly enable
+let g:vim_svelte_plugin_use_typescript = 1
+
 " all the elixir-ls + ale settings
 let g:ale_linters = {
 \    "elixir": ["elixir-ls"],
 \    "eelixir": ["elixir-ls"],
+\    "svelte": ["svelteserver"],
 \    "typescript": ["eslint", "tsserver"],
 \}
 
 let g:ale_fixers = {
 \    "elixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "eelixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
+\    "svelte": ["prettier", "remove_trailing_lines", "trim_whitespace"],
 \    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
 \    "*": ["trim_whitespace", "remove_trailing_lines"],
 \}
