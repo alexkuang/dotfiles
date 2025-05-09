@@ -208,6 +208,19 @@ let g:ale_elixir_elixir_ls_release = expand("~/.elixir-ls/release")
 let g:ale_fix_on_save = 1
 let g:ale_linters_explicit = 1
 
+if !exists('g:projectionist_transformations')
+  let g:projectionist_transformations = {}
+endif
+
+function! ElixirPostTransform(input, ...) abort
+  let l:result = a:input
+  let l:result = substitute(l:result, 'Llm', 'LLM', 'g')
+  let l:result = substitute(l:result, 'Openai', 'OpenAI', 'g')
+  return l:result
+endfunction
+
+let g:projectionist_transformations.elixir_post = function('ElixirPostTransform')
+
 let g:projectionist_heuristics = {
 \   "tsconfig.json": {
 \     "src/*.test.ts": {
@@ -246,7 +259,7 @@ let g:projectionist_heuristics = {
 \       "alternate": "test/{}_test.exs",
 \       "type": "source",
 \       "template": [
-\         "defmodule {camelcase|capitalize|dot} do",
+\         "defmodule {camelcase|capitalize|dot|elixir_post} do",
 \         "end"
 \       ],
 \     },
