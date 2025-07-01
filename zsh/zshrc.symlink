@@ -79,3 +79,10 @@ setopt HIST_IGNORE_DUPS
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
+
+# bun completions
+[ -s "/Users/alexkuang/.bun/_bun" ] && source "/Users/alexkuang/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
