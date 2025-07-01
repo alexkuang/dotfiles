@@ -2,12 +2,11 @@
 #
 # set up asdf plugins and such
 
-asdf plugin add python https://github.com/danhper/asdf-python.git
+asdf plugin add python
+asdf plugin add ruby
+asdf plugin add terraform
+asdf plugin add nodejs
+asdf plugin add elixir
 
-asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-
-asdf plugin add terraform https://github.com/Banno/asdf-hashicorp.git
-
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-
-asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf install
+asdf reshim
