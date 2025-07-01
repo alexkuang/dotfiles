@@ -6,9 +6,12 @@ export PATH="$PATH:$HOME/.dotfiles/bin:/opt/homebrew/bin"
 eval "$(brew shellenv)"
 export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin:$PATH"
 
-# rust + solana
-. "$HOME/.cargo/env"
-export PATH="/Users/alexkuang/.local/share/solana/install/active_release/bin:$PATH"
-
 # uv
 export PATH="/Users/alexkuang/.local/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# coursier (scala)
+export PATH="$PATH:/Users/alexkuang/Library/Application Support/Coursier/bin"
