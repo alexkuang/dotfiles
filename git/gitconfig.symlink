@@ -31,12 +31,15 @@
     editor = vim
 [apply]
     whitespace = nowarn
+[merge]
+    conflictstyle = zdiff3
 [mergetool]
     keepBackup = false
 [difftool]
     prompt = false
 [diff]
     tool = vimdiff
+    algorithm = histogram
 [help]
     autocorrect = 1
 [push]
@@ -48,17 +51,21 @@
     followTags = true
     autoSetupRemote = true
 [pull]
-	rebase = merges
+    rebase = merges
 [branch]
-	autoSetupRebase = always
+    autoSetupRebase = always
+[rebase]
+    autosquash = true
+    autostash = true
+    updateRefs = true
 [rerere]
-	enabled = true
+    enabled = true
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [include]
     path = ~/.gitconfig.local
