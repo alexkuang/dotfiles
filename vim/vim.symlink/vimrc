@@ -142,7 +142,7 @@ au BufRead,BufNewFile *.sc set filetype=scala
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.tsx set filetype=typescript.jsx "for some reason it defaults to 'typescriptreact'
 au BufRead,BufNewFile Jenkinsfile,*.jenkinsfile set filetype=groovy
-autocmd FileType ruby,Gemfile,yaml,javascript,javascriptreact,svelte set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType ruby,Gemfile,yaml,javascript,javascriptreact,svelte,astro set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType json set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType python set shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 autocmd FileType python let b:dispatch = 'python3 -m unittest'
@@ -200,6 +200,7 @@ let g:ale_fixers = {
 \    "elixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "eelixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "svelte": ["prettier", "remove_trailing_lines", "trim_whitespace"],
+\    "astro": ["eslint", "prettier", "remove_trailing_lines", "trim_whitespace"],
 \    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
 \    "*": ["trim_whitespace", "remove_trailing_lines"],
 \}
