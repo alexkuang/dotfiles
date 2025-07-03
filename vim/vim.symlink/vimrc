@@ -188,10 +188,11 @@ let g:scala_first_party_namespaces="io.narrative"
 " for some reason have to explicitly enable
 let g:vim_svelte_plugin_use_typescript = 1
 
-" all the elixir-ls + ale settings
+" all the ale settings
 let g:ale_linters = {
 \    "elixir": ["elixir-ls"],
 \    "eelixir": ["elixir-ls"],
+\    "scala": ["metals"],
 \    "svelte": ["svelteserver"],
 \    "typescript": ["eslint", "tsserver"],
 \}
@@ -201,6 +202,7 @@ let g:ale_fixers = {
 \    "eelixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "svelte": ["prettier", "remove_trailing_lines", "trim_whitespace"],
 \    "astro": ["eslint", "prettier", "remove_trailing_lines", "trim_whitespace"],
+\    "scala": ["scalafmt", "remove_trailing_lines", "trim_whitespace"],
 \    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
 \    "*": ["trim_whitespace", "remove_trailing_lines"],
 \}
