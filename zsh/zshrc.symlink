@@ -81,4 +81,4 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 . $(brew --prefix asdf)/libexec/asdf.sh
 
 # bun completions
-[ -s "/Users/alexkuang/.bun/_bun" ] && source "/Users/alexkuang/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"

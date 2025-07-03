@@ -1,4 +1,3 @@
-# Sometimes zsh autocorrect can get quite annoying.
-alias lein='nocorrect lein'
-alias em='emacs'
 alias l="ls -al --color"
+# use local claude install instead of global npm one
+alias claude="~/.claude/local/claude"
