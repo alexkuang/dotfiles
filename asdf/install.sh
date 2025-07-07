@@ -8,6 +8,7 @@ asdf plugin add terraform
 asdf plugin add nodejs
 asdf plugin add elixir
 asdf plugin add erlang
+asdf plugin add rust
 
 asdf install
 asdf reshim
