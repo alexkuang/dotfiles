@@ -20,3 +20,5 @@ target/
 # generally ~never want to commit code assistant config stuff
 /.aider*
 /.claude/settings.local.json
+
+.envrc
