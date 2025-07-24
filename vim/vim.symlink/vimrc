@@ -130,6 +130,17 @@ function! VimuxShell()
     call VimuxSendKeys("Enter")
 endfunction
 
+function! CustomGoToDef()
+    " if ALE has an LSP for the given file, use that instead
+    " (NB: slight race condition with the LSP being up, but checking that might be too much of a pain)
+    if exists('g:ale_fixers') && has_key(g:ale_fixers, &filetype)
+        ALEGoToDefinition
+    else
+        " otherwise do the normal tag jump
+        execute "normal! \<C-]>"
+    endif
+endfunction
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " language/plugin-specific configs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -331,6 +342,8 @@ nnoremap <leader>vq :VimuxCloseRunner<CR>
 nnoremap <leader>vl :VimuxRunLastCommand<CR>
 vnoremap <leader>vs "vy :call VimuxShell()<cr>
 vnoremap <leader>vz "vy :call VimuxShell()<cr>
+
+nnoremap <C-]> :call CustomGoToDef()<CR>
 
 " for machine-specific things
 if filereadable(expand("~/.vimrc.local"))
