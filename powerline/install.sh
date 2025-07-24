@@ -1,3 +1,4 @@
+#!/bin/sh
 
 if [ ! -d ~/.powerline-fonts ]
 then
