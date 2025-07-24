@@ -192,6 +192,7 @@ let g:vim_svelte_plugin_use_typescript = 1
 let g:ale_linters = {
 \    "elixir": ["elixir-ls"],
 \    "eelixir": ["elixir-ls"],
+\    "rust": ["analyzer"],
 \    "scala": ["metals"],
 \    "svelte": ["svelteserver"],
 \    "typescript": ["eslint", "tsserver"],
@@ -202,6 +203,7 @@ let g:ale_fixers = {
 \    "eelixir": ["mix_format", "remove_trailing_lines", "trim_whitespace"],
 \    "svelte": ["prettier", "remove_trailing_lines", "trim_whitespace"],
 \    "astro": ["eslint", "prettier", "remove_trailing_lines", "trim_whitespace"],
+\    "rust": ["rustfmt", "remove_trailing_lines", "trim_whitespace"],
 \    "scala": ["scalafmt", "remove_trailing_lines", "trim_whitespace"],
 \    "typescript": ["eslint", "prettier", "tslint", "remove_trailing_lines", "trim_whitespace"],
 \    "*": ["trim_whitespace", "remove_trailing_lines"],
