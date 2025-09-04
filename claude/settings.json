@@ -3,6 +3,7 @@
     "allow": [
       "Bash(cargo build:*)",
       "Bash(cargo check:*)",
+      "Bash(cargo clean:*)",
       "Bash(cargo test:*)",
       "Bash(find:*)",
       "Bash(git add:*)",
@@ -14,20 +15,36 @@
       "Bash(mix compile)",
       "Bash(mix test:*)",
       "Bash(mkdir:*)",
+      "Bash(npm outdated)",
       "Bash(npm run build:*)",
       "Bash(npm run lint:*)",
       "Bash(npm run type-check:*)",
+      "Bash(npm run tauri dev:*)",
+      "Bash(npm run tauri build:*)",
+      "Bash(npm run test:*)",
       "Bash(npm test:*)",
       "Bash(rg:*)",
+      "WebFetch(domain:crates.io)",
+      "WebFetch(domain:developer.mozilla.org)",
+      "WebFetch(domain:doc.rust-lang.org)",
+      "WebFetch(domain:docs.astro.build)",
+      "WebFetch(domain:docs.python.org)",
       "WebFetch(domain:github.com)",
+      "WebFetch(domain:go.dev)",
       "WebFetch(domain:hex.pm)",
       "WebFetch(domain:hexdocs.pm)",
       "WebFetch(domain:modelcontextprotocol.io)",
-      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:pkg.go.dev)",
+      "WebFetch(domain:pypi.org)",
+      "WebFetch(domain:react.dev)",
+      "WebFetch(domain:svelte.dev)",
       "Edit",
       "MultiEdit",
       "Write"
     ],
     "deny": []
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1753996162371
   }
 }
