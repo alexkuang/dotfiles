@@ -12,7 +12,9 @@
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(mix assets.build:*)",
-      "Bash(mix compile)",
+      "Bash(mix deps.get:*)",
+      "Bash(mix ecto.gen.migration:*)",
+      "Bash(mix compile:*)",
       "Bash(mix test:*)",
       "Bash(mkdir:*)",
       "Bash(npm outdated)",
@@ -38,6 +40,7 @@
       "WebFetch(domain:pypi.org)",
       "WebFetch(domain:react.dev)",
       "WebFetch(domain:svelte.dev)",
+      "WebSearch",
       "Edit",
       "MultiEdit",
       "Write"
@@ -46,5 +49,6 @@
   },
   "feedbackSurveyState": {
     "lastShownTime": 1753996162371
-  }
+  },
+  "alwaysThinkingEnabled": true
 }
