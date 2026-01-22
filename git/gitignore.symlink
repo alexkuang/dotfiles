@@ -18,7 +18,6 @@ target/
 .elixir_ls/
 
 # generally ~never want to commit code assistant config stuff
-/.aider*
 /.claude/settings.local.json
 
 .envrc
