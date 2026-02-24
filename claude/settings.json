@@ -27,6 +27,7 @@
       "Bash(npm run tauri build:*)",
       "Bash(npm run test:*)",
       "Bash(npm test:*)",
+      "Bash(npx cdk synth:*)",
       "Bash(rg:*)",
       "WebFetch(domain:crates.io)",
       "WebFetch(domain:developer.mozilla.org)",
@@ -49,8 +50,8 @@
     ],
     "deny": []
   },
+  "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1753996162371
-  },
-  "alwaysThinkingEnabled": true
+  }
 }
