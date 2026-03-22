@@ -117,7 +117,7 @@ tmux_conf_theme_window_status_attr='none'
 #
 # 🛠 80% of the time, this works 100% of the time 🛠
 #tmux_conf_theme_window_status_format='#I #W (#(p=#{b:pane_current_path}; pl=$(expr length $p); [[ $pl -gt 3 ]] && (echo $p) || (echo $(sed "s|^$HOME|~|" <<< #{pane_current_path} ))))'
-tmux_conf_theme_window_status_format='#I #W (#{b:pane_current_path})'
+tmux_conf_theme_window_status_format='#I #W (#{=/-16/...:#{b:pane_current_path}})'
 #tmux_conf_theme_window_status_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
@@ -133,7 +133,7 @@ tmux_conf_theme_window_status_current_fg='#000000'
 tmux_conf_theme_window_status_current_bg='#00afff'
 tmux_conf_theme_window_status_current_attr='bold'
 #tmux_conf_theme_window_status_current_format='#I #W (#(p=#{b:pane_current_path}; pl=$(expr length $p); [[ $pl -gt 3 ]] && (echo $p) || (echo $(sed "s|^$HOME|~|" <<< #{pane_current_path} ))))'
-tmux_conf_theme_window_status_current_format='#I #W (#{b:pane_current_path})'
+tmux_conf_theme_window_status_current_format='#I #W (#{=/-16/...:#{b:pane_current_path}})'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_current_format='#I #W#{?window_zoomed_flag,🔍,}'
 
