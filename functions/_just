@@ -113,7 +113,7 @@ _just() {
             elif [[ -n $_just_context_recipe ]]; then
                 _message "`just --show $_just_context_recipe`"
             elif [[ -n $_just_context_module ]]; then
-                _just_commands "$_just_context_module"
+                _just_commands_for_module "$_just_context_module"
             else
                 _just_commands
             fi
@@ -189,69 +189,49 @@ _just_recipe_paths() {
     return 1
 }
 
+(( $+functions[_just_list_commands] )) ||
+_just_list_commands() {
+    local module_prefix=$1
+
+    if [[ -n $module_prefix ]]; then
+        reply=(
+            ${${${(M)"${(f)$(_call_program commands just --list "$module_prefix")}":#    *}/ ##/}/ ##/:Args: }
+        )
+    else
+        reply=(
+            ${${${(M)"${(f)$(_call_program commands just --list)}":#    *}/ ##/}/ ##/:Args: }
+        )
+    fi
+}
+
+(( $+functions[_just_commands_for_module] )) ||
+_just_commands_for_module() {
+    local _just_active_module_prefix=$1
+    shift
+    _just_commands "$@"
+}
+
 (( $+functions[_just_commands] )) ||
 _just_commands() {
     [[ $PREFIX = -* ]] && return 1
 
     integer ret=1
-    local module_prefix=$1
-    local -a variables summary_commands command_names modules
-    local -A seen
-    local command tail child
+    local module_prefix=${_just_active_module_prefix:-}
+    local -a variables command_names
 
     variables=(
         ${(s: :)$(_call_program commands just --variables)}
     )
 
-    _just_summary_commands
-    summary_commands=("${reply[@]}")
+    _just_list_commands "$module_prefix"
+    command_names=("${reply[@]}")
 
     if compset -P '*='; then
         _message 'value' && return 0
     fi
 
     _describe -t variables 'variables' variables -qS "=" && ret=0
-
-    if [[ -z $module_prefix ]]; then
-        for command in "${summary_commands[@]}"; do
-            if [[ $command == *::* ]]; then
-                child=${command%%::*}
-                if [[ -z ${seen[module:$child]} ]]; then
-                    modules+=("${child}:module")
-                    seen[module:$child]=1
-                fi
-            elif [[ -z ${seen[recipe:$command]} ]]; then
-                command_names+=("$command")
-                seen[recipe:$command]=1
-            fi
-        done
-    else
-        # LOCAL: When a module has already been selected, only complete
-        # recipes and submodules within that module.
-        local -a scoped_commands
-        scoped_commands=()
-
-        for command in "${summary_commands[@]}"; do
-            [[ $command == ${module_prefix}::* ]] || continue
-            tail=${command#${module_prefix}::}
-            child=${tail%%::*}
-
-            if [[ $tail == *::* ]]; then
-                if [[ -z ${seen[module:$child]} ]]; then
-                    modules+=("${child}:module")
-                    seen[module:$child]=1
-                fi
-            elif [[ -z ${seen[recipe:$child]} ]]; then
-                scoped_commands+=("$child")
-                seen[recipe:$child]=1
-            fi
-        done
-
-        command_names=("${scoped_commands[@]}")
-    fi
-
-    _describe -t modules 'just modules' modules && ret=0
-    _describe -t commands 'just commands' command_names && ret=0
+    _describe -t commands 'just commands' command_names "$@" && ret=0
 
     return ret
 }
