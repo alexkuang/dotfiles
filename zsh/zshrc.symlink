@@ -18,6 +18,7 @@ do
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
+fpath=($HOME/.dotfiles/functions $fpath)
 autoload -U compinit
 compinit
 
