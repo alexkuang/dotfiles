@@ -9,9 +9,10 @@ export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/
 # uv
 export PATH="/Users/alexkuang/.local/bin:$PATH"
 
-# bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # coursier (scala)
 export PATH="$PATH:/Users/alexkuang/Library/Application Support/Coursier/bin"
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
