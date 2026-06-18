@@ -19,15 +19,14 @@
       "Bash(mix compile:*)",
       "Bash(mix test:*)",
       "Bash(mkdir:*)",
-      "Bash(npm outdated)",
-      "Bash(npm run build:*)",
-      "Bash(npm run lint:*)",
-      "Bash(npm run type-check:*)",
-      "Bash(npm run tauri dev:*)",
-      "Bash(npm run tauri build:*)",
-      "Bash(npm run test:*)",
-      "Bash(npm test:*)",
-      "Bash(npx cdk synth:*)",
+      "Bash(pnpm outdated)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm run lint:*)",
+      "Bash(pnpm run type-check:*)",
+      "Bash(pnpm run tauri dev:*)",
+      "Bash(pnpm run tauri build:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm test:*)",
       "Bash(rg:*)",
       "WebFetch(domain:crates.io)",
       "WebFetch(domain:developer.mozilla.org)",
@@ -48,7 +47,9 @@
       "MultiEdit",
       "Write"
     ],
-    "deny": []
+    "deny": [
+      "Bash(npm:*)"
+    ]
   },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
