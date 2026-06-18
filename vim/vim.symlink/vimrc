@@ -76,6 +76,13 @@ set belloff=all
 
 set tags=./ctags,ctags;
 
+" Keep swap files out of project directories, llms like complaining about them
+let s:swapdir = expand('~/.vim/swap')
+if !isdirectory(s:swapdir)
+    call mkdir(s:swapdir, 'p', 0700)
+endif
+let &directory = fnameescape(s:swapdir) . '//'
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
