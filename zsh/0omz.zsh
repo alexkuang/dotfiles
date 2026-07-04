@@ -1,42 +1,36 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Lightweight replacements for the small subset of Oh My Zsh this setup used.
 
 # Because tmux is weird.
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+# Preserve the heavily-used Oh My Zsh git shortcut. The rest of the common
+# git shortcuts are configured as native git aliases in ~/.gitconfig.
+alias g="git"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+setopt PROMPT_SUBST
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+_dotfiles_git_prompt_info() {
+  command git rev-parse --git-dir > /dev/null 2>&1 || return 0
+  [[ "$(command git config --get oh-my-zsh.hide-info 2> /dev/null)" == 1 ]] && return 0
 
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+  local ref dirty
+  ref="$(command git symbolic-ref --short HEAD 2> /dev/null)" \
+    || ref="$(command git describe --tags --exact-match HEAD 2> /dev/null)" \
+    || ref="$(command git rev-parse --short HEAD 2> /dev/null)" \
+    || return 0
 
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+  if [[ -n "$(command git status --porcelain 2> /dev/null)" ]]; then
+    dirty=" %F{red}*%F{green}"
+  fi
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+  print -r -- "%F{green}[${ref//\%/%%}${dirty}]%f"
+}
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+PROMPT='%B%F{green}%n@%m%b %F{blue}%D{[%X]}%f %F{white}[%~]%f $(_dotfiles_git_prompt_info)
+%F{blue}->%B%F{blue} %#%f%b '
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-zstyle ':omz:plugins:nvm' lazy yes
-plugins=(nvm git direnv)
-
-source $ZSH/oh-my-zsh.sh
+if command -v direnv > /dev/null 2>&1
+then
+  eval "$(direnv hook zsh)"
+fi
