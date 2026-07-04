@@ -12,7 +12,7 @@ export PATH="/Users/alexkuang/.local/bin:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# coursier (scala)
-export PATH="$PATH:/Users/alexkuang/Library/Application Support/Coursier/bin"
-
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+if command -v mise > /dev/null 2>&1
+then
+  eval "$(mise activate zsh)"
+fi
