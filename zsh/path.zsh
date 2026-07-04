@@ -9,9 +9,6 @@ export PATH="${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin:${HOMEBREW_PREFIX}/
 # uv
 export PATH="/Users/alexkuang/.local/bin:$PATH"
 
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 if command -v mise > /dev/null 2>&1
 then
   eval "$(mise activate zsh)"
