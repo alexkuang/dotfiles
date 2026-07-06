@@ -22,6 +22,16 @@ fpath=($HOME/.dotfiles/functions $fpath)
 autoload -U compinit
 compinit
 
+unsetopt MENU_COMPLETE # do not immediately insert the first completion
+unsetopt FLOW_CONTROL # keep C-s/C-q available to zle instead of terminal flow control
+setopt AUTO_MENU # show the completion menu on repeated tab
+setopt COMPLETE_IN_WORD # complete at the cursor, not only at the end
+setopt ALWAYS_TO_END # move cursor to the end after completing a word
+zstyle ':completion:*:*:*:*:*' menu select # make completion menus navigable
+zstyle ':completion:*' special-dirs true # include . and .. in directory completion
+# try exact first, then smart case and partial words after . _ -
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*'
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
@@ -82,6 +92,10 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
 
 # try out fish-like syntax highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
