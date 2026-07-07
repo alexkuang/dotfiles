@@ -32,6 +32,11 @@ zstyle ':completion:*' special-dirs true # include . and .. in directory complet
 # try exact first, then smart case and partial words after . _ -
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*'
 
+# directory stack settings
+setopt AUTO_PUSHD # make cd push the previous directory onto the stack
+setopt PUSHD_IGNORE_DUPS # avoid duplicate entries in the directory stack
+setopt PUSHD_SILENT # do not print the directory stack after pushd/popd
+
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
