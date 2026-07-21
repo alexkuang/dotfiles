@@ -51,7 +51,12 @@
       "Bash(npm:*)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.dotfiles/claude/statusline.sh"
+  },
   "alwaysThinkingEnabled": true,
+  "theme": "dark",
   "feedbackSurveyState": {
     "lastShownTime": 1753996162371
   }
