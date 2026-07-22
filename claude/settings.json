@@ -1,4 +1,5 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(cargo build:*)",
@@ -57,7 +58,7 @@
     "command": "~/.dotfiles/claude/statusline.sh"
   },
   "alwaysThinkingEnabled": true,
-  "includeCoAuthoredBy": false,
+  "autoMemoryEnabled": false,
   "theme": "dark",
   "feedbackSurveyState": {
     "lastShownTime": 1753996162371
