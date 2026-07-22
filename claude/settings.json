@@ -56,6 +56,7 @@
     "command": "~/.dotfiles/claude/statusline.sh"
   },
   "alwaysThinkingEnabled": true,
+  "includeCoAuthoredBy": false,
   "theme": "dark",
   "feedbackSurveyState": {
     "lastShownTime": 1753996162371
