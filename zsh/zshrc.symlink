@@ -29,8 +29,8 @@ setopt COMPLETE_IN_WORD # complete at the cursor, not only at the end
 setopt ALWAYS_TO_END # move cursor to the end after completing a word
 zstyle ':completion:*:*:*:*:*' menu select # make completion menus navigable
 zstyle ':completion:*' special-dirs true # include . and .. in directory completion
-# try exact first, then smart case and partial words after . _ -
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*'
+# try exact first, then smart case, partial words, and finally infix matches
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # directory stack settings
 setopt AUTO_PUSHD # make cd push the previous directory onto the stack
